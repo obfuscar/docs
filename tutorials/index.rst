@@ -1,0 +1,7 @@
+Tutorials
+---------
+
+.. toctree::
+   :titlesonly:
+
+   basics
