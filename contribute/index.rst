@@ -6,6 +6,6 @@ Contribute
 .. toctree::
    :titlesonly:
 
-   contributing-guide
+   contributors
    Docs Style Guide <https://docs.asp.net/en/latest/contribute/style-guide.html>
    github
