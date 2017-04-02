@@ -20,17 +20,18 @@ as an existing method, it could be named 'a'.
 
 It makes decompiled code very difficult to follow. The wiki has more details about What It Does.
 
-The current release is Obfuscar 2.0 RC5. This is a port of Obfuscar 1.5.4 to the latest Mono.Cecil library. By using this new library Obfuscar now supports .NET 4.0 assemblies. 
+The current release is Obfuscar 2.x. This is a port of Obfuscar 1.5.4 to the latest Mono.Cecil library. By using this new library Obfuscar now supports .NET 4.0 assemblies. 
 Because there are a lot of subtle changes in Cecil's new API and patched merged from different sources, this release of Obfuscar must be considered unstable.
 
-Note: Since version 1.5 the attrib attribute is evaluated correctly. Be sure to check if there are any unintended attrib values from the example in your configuration file.
+.. note:: Since version 1.5 the attrib attribute is evaluated correctly. Be sure to check if there are any unintended attrib values from the example in your configuration file.
+
+Its source code can be found at GitHub,
+
+https://github.com/lextm/obfuscar
 
 Obfuscar works its magic with the help of Jb Evain's fantastic Mono Cecil library.
 
 The documentation section includes the following topics,
-
-Topics
-------
 
 .. toctree::
     :titlesonly:
@@ -46,7 +47,7 @@ We use `GitHub <https://github.com/lextm/obfuscar/issues?q=label%3A%22faq+candid
 Contribute to Documentation
 ---------------------------
 
-The documentation on this site is the handiwork of our many `contributors.
+The documentation on this site is the handiwork of our many contributors.
 
 **We accept pull requests!** But you're more likely to have yours accepted if you follow these guidelines:
 
