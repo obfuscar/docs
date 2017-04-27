@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block footer %}
+    {{ super() }}
 <script type='text/javascript'>
     function _dmBootstrap(file) {
         var _dma = document.createElement('script');
@@ -16,5 +17,4 @@
     function _dmFollowup(file) { if (typeof DMAds === 'undefined') _dmBootstrap('cdn2.DeveloperMedia.com/a.min.js'); }
     (function () { _dmBootstrap('cdn1.DeveloperMedia.com/a.min.js'); setTimeout(_dmFollowup, 2000); })();
 </script>
-    {{ super() }}
 {% endblock %}
