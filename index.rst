@@ -6,9 +6,9 @@
 .. _index:
 
 Obfuscar Documentation
-=============================
+======================
 
-.. attention:: Obfuscar 2.2.4 is now available on NuGet! Please read the :doc:`Getting Started <getting-started/index>` instructions for installing the latest version from NuGet.
+.. attention:: Obfuscar 2.2.5 is now available on NuGet! Please read the :doc:`Getting Started <getting-started/index>` instructions for installing the latest version from NuGet.
 
 General
 -------
@@ -19,6 +19,8 @@ For example, if a class contains only methods that accept different parameters, 
 as an existing method, it could be named 'a'.
 
 It makes decompiled code very difficult to follow. The wiki has more details about What It Does.
+
+.. image:: _static/obfuscar.png
 
 The current release is Obfuscar 2.x. This is a port of Obfuscar 1.5.4 to the latest Mono.Cecil library. By using this new library Obfuscar now supports .NET 4.0 assemblies. 
 Because there are a lot of subtle changes in Cecil's new API and patched merged from different sources, this release of Obfuscar must be considered unstable.
@@ -38,11 +40,8 @@ The documentation section includes the following topics,
 
     getting-started/index
     tutorials/index
+    support/index
     contribute/index
-
-Frequent Asked Questions (FAQ)
-------------------------------
-We use `GitHub <https://github.com/lextm/obfuscar/issues?q=label%3A%22faq+candidate%22+is%3Aclosed>`_ to manage the list.
 
 Contribute to Documentation
 ---------------------------
