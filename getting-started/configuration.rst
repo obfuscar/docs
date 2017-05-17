@@ -69,8 +69,17 @@ In addition to being usable like macros, there are a few special variables that 
 path is searched), and the variable OutPath is used as the output path for the obfuscated assemblies and the map. If either InPath or OutPath is unspecified, they default to the 
 current path (".").
 
-KeepPublicApi and HidePrivateApi (new)
---------------------------------------
+Assembly Search Path (2.2.5+)
+-----------------------------
+This setting specifies an additional place to search for references. There can be multiple instances of this tag.
+
+.. code-block:: xml
+
+   <AssemblySearchPath path=".\Library\UnityAssemblies" />
+   <AssemblySearchPath path=".\Assets\SpriteSharp\Editor\3rdParty" />
+
+KeepPublicApi and HidePrivateApi
+--------------------------------
 A common case of assembly obfuscation is to strip out private information and keep public items. This can be achieved by setting the following combination,
 
 .. code-block:: xml
@@ -299,6 +308,44 @@ If no KeyFile is specified, Obfuscar normally throws an exception on signed asse
 no key file is given.
 
 With the special key file name auto, Obfuscar uses the value of the AssemblyKeyFileAttribute instead (if existing).
+
+Configuration Fragments (2.2.5+)
+--------------------------------
+Configuration can now be split into multiple files.
+
+Usage example:
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="UTF-8"?>
+   <Obfuscator>
+     <Var name="InPath" value="..\..\Input" />
+     <Var name="OutPath" value="..\..\Output" />
+     <Var name="KeepPublicApi" value="false" />
+     <Var name="HidePrivateApi" value="true" />
+     <Include path="$(InPath)\TestInclude.xml" />
+     <Module file="$(InPath)\AssemblyWithCustomAttr.dll">
+         <Include path="$(InPath)\TestIncludeModule.xml" />
+     </Module>
+   </Obfuscator>
+
+TestInclude.xml:
+
+.. code-block:: xml
+
+   <?xml version='1.0'?>
+   <Include>
+     <Var name='TestIncludeVar' value='Foo' />
+   </Include>
+
+TestIncludeModule.xml:
+
+.. code-block:: xml
+
+   <?xml version='1.0'?>
+   <Include>
+     <SkipMethod type='SkipVirtualMethodTest.Interface1' name='Method1' />
+   </Include>
 
 Related Resources
 -----------------
