@@ -54,7 +54,7 @@ Gradually Lex gained knowledge about Cecil and Obfuscar and started to heavily c
 Carlo from RemObjects also contributes to this new fork, since Jan 2014. The collaboration aims to keep the two forks in sync in all possible ways, though due to the varied needs and 
 design goals of two parties the forks still present significant differences.
 
-The project homepage is now switched to CodePlex, and the latest release is 2.*.
+The `project homepage <https://www.obfuscar.com>`_ is now switched, and the latest release is 2.*.
 
 .. rubric:: Footnotes
 
