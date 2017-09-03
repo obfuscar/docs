@@ -11,12 +11,12 @@ This page shows you the basics about Obfuscar.
 
 Folder Structure
 ----------------
-There is a basic example project included in the code base. To build and obfuscate the BasicExample, get the source from Git, navigate to the BasicExample path.
-
-.. image:: _static/example.png
+The example has been moved to a separate repository `at GitHub <https://github.com/lextm/obfuscar_example>`_ .
 
 Technical Details
 -----------------
+.. note:: The example assumes you have Visual Studio 2017 installed.
+
 The example consists of a solution that includes and executable and a dll. The test.bat script builds the solution, copies the output to a temporary input path. The files are then obfuscated into a temporary output path. After obfuscation, the files are copied along with the map file to their final output path.
 
 The reason for this indirection is safety. The release process should be as follows:
