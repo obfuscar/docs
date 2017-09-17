@@ -8,7 +8,7 @@
 Obfuscar Documentation
 ======================
 
-.. attention:: Obfuscar 2.2.8 is now available on NuGet! Please read the :doc:`Getting Started <getting-started/index>` instructions for installing the latest version from NuGet.
+.. attention:: Obfuscar 2.2.9 is now available on NuGet! Please read the :doc:`Getting Started <getting-started/index>` instructions for installing the latest version from NuGet.
 
 General
 -------
