@@ -33,6 +33,11 @@ Obfuscar can mistakenly rename a virtual function, so that at runtime CLR cannot
 
 The workaround is to skip such methods in obfuscation explicitly. A bug report can also be fired at GitHub.
 
+How to analyze exceptioni call stack if obfuscated?
+---------------------------------------------------
+Obfuscation replaces class and method names so that exception call stacks would be difficult to read. But there is 
+`a separate open source project called ObfuscarMappingParser <https://github.com/BrokenEvent/ObfuscarMappingParser>`_ to address the challenge.
+
 Related Resources
 -----------------
 
