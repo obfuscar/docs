@@ -6,5 +6,4 @@ Getting Started
 
    basics
    configuration
-   faq
    history
