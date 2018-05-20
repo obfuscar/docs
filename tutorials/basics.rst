@@ -19,9 +19,11 @@ Technical Details
 
 The example consists of a solution that includes and executable and a dll.
 
-The final executable project adds Obfuscar NuGet package from NuGet.org, and uses it in post build event to perform obfuscation.
+The final executable project adds Obfuscar NuGet package from NuGet.org, and
+uses it in post build event to perform obfuscation.
 
-The obfuscation settings are stored in an XML file (``obfuscar.xml``), and is copied to output directory by MSBuild.
+The obfuscation settings are stored in an XML file (``obfuscar.xml``), and is
+copied to output directory by MSBuild.
 
 Related Resources
 -----------------
