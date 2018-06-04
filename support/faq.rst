@@ -115,7 +115,7 @@ How to troubleshoot TypeLoadException if a method does not have implementation?
 ----------------------------------------------------------------------------------
 One such case is
 
-https://github.com/lextm/obfuscar/issues/47
+https://github.com/obfuscar/obfuscar/issues/47
 
 .. note:: It is very likely a bug of Obfuscar.
 

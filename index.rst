@@ -41,7 +41,7 @@ be considered unstable.
 
 Its source code can be found at GitHub,
 
-https://github.com/lextm/obfuscar
+https://github.com/obfuscar/obfuscar
 
 Obfuscar works its magic with the help of Jb Evain's fantastic Mono Cecil
 library.
@@ -64,4 +64,4 @@ The documentation on this site is the handiwork of our many contributors.
 **We accept pull requests!** But you're more likely to have yours accepted if
 you follow these guidelines:
 
-Read the `Contributing Guide <https://github.com/lextm/obfuscar_docs/blob/master/CONTRIBUTING.md>`_.
+Read the `Contributing Guide <https://github.com/obfuscar/docs/blob/master/CONTRIBUTING.md>`_.

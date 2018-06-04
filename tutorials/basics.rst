@@ -11,7 +11,7 @@ This page shows you the basics about Obfuscar.
 
 Folder Structure
 ----------------
-The example has been moved to a separate repository `at GitHub <https://github.com/lextm/obfuscar_example>`_ .
+The example has been moved to a separate repository `at GitHub <https://github.com/obfuscar/example>`_ .
 
 Technical Details
 -----------------

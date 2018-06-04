@@ -91,7 +91,7 @@ The `project homepage <https://www.obfuscar.com>`_ is now switched, and the late
 .. [16] http://code.remobjects.com/p/obfuscar
 .. [17] https://bitbucket.org/darktable/obfuscar/wiki/Home
 .. [18] https://github.com/AngryAnt/obfuscar
-.. [19] https://github.com/lextm/obfuscar
+.. [19] https://github.com/obfuscar/obfuscar
 
 Related Resources
 -----------------
