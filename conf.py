@@ -389,3 +389,12 @@ feed_author = 'Ryan Williams, Calvin Rien, Lex Li, RemObjects Software, and othe
 if not on_rtd:
     edit_on_github_project = 'obfuscar/docs'
     edit_on_github_branch = 'master'
+
+def setup(app):
+    on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+    if not on_rtd:
+        """Insert Google Analytics tracker
+        Based on this Stackoverflow suggestion: https://stackoverflow.com/a/41885884
+        """
+        app.add_javascript("https://www.googletagmanager.com/gtag/js?id=UA-1962620-16")
+        app.add_javascript("google_analytics_tracker.js")
