@@ -20,6 +20,7 @@ import shlex
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('_ext'))
 
 # -- General configuration ------------------------------------------------
 
@@ -30,7 +31,8 @@ import shlex
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.intersphinx'
+    'sphinx.ext.intersphinx',
+    'edit_on_github'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -383,3 +385,6 @@ feed_skip_regex = '(.)*index'
 feed_base_url = 'http://obfuscar.lextudio.com/en/latest'
 feed_description = 'Obfuscar Documentation'
 feed_author = 'Ryan Williams, Calvin Rien, Lex Li, RemObjects Software, and other contributors'
+
+edit_on_github_project = 'obfuscar/docs'
+edit_on_github_branch = 'master'

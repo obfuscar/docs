@@ -218,6 +218,4 @@ for future reference.
 Related Resources
 -----------------
 
-- :doc:`/getting-started/installing-on-windows`
 - :doc:`/tutorials/basics`
-- :doc:`/themes/existing-themes`
