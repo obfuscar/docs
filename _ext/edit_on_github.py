@@ -20,6 +20,10 @@ def get_github_url(app, view, path):
 
 
 def html_page_context(app, pagename, templatename, context, doctree):
+    on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+    if on_rtd:
+        return
+
     if templatename != 'page.html':
         return
 
@@ -33,6 +37,7 @@ def html_page_context(app, pagename, templatename, context, doctree):
 
     context['show_on_github_url'] = show_url
     context['edit_on_github_url'] = edit_url
+
 
     # For sphinx_rtd_theme.
     context['display_github'] = True
