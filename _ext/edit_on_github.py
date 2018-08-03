@@ -20,10 +20,6 @@ def get_github_url(app, view, path):
 
 
 def html_page_context(app, pagename, templatename, context, doctree):
-    on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
-    if on_rtd:
-        return
-
     if templatename != 'page.html':
         return
 

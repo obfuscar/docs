@@ -386,5 +386,6 @@ feed_base_url = 'http://obfuscar.lextudio.com/en/latest'
 feed_description = 'Obfuscar Documentation'
 feed_author = 'Ryan Williams, Calvin Rien, Lex Li, RemObjects Software, and other contributors'
 
-edit_on_github_project = 'obfuscar/docs'
-edit_on_github_branch = 'master'
+if not on_rtd:
+    edit_on_github_project = 'obfuscar/docs'
+    edit_on_github_branch = 'master'
