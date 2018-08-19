@@ -24,6 +24,7 @@ OutPath               Output file location
 LogFile               Obfuscation log file path (mapping.txt)
 XmlMapping            Whether the log file should be of XML format
 KeyFile               Key file path
+KeyContainer          Key container name
 RegenerateDebugInfo   Whether to generate debug symbols for obfuscated assemblies
 MarkedOnly            Whether only to obfuscate marked items
 RenameProperties      Whether to rename properties
@@ -352,8 +353,8 @@ Add the following line to the configuration file to enable unique names:
 
    <Var name="ReuseNames" value="false" />
 
-Control Hiding of Strings
--------------------------
+Control String Hiding
+---------------------
 By default Obfuscar hides all string constants by replacing the string load
 (LDSTR opcode) by calls to methods which return the string from a buffer. This
 buffer is allocated on startup (in a static constructor) by reading from a
@@ -382,12 +383,26 @@ the particular assembly.
 
    <Var name="KeyFile" value="key.snk" />
 
-If no KeyFile is specified, Obfuscar normally throws an exception on signed
-assemblies. If an assembly is marked delay signed, the signing step will be
-skipped in case no key file is given.
+If the project uses a .pfx file to sign the assembly, by default Visual Studio
+would create a key container in Windows, whose name can be found from MSBuild
+diagnostic logging.
 
-With the special key file name auto, Obfuscar uses the value of the
-AssemblyKeyFileAttribute instead (if existing).
+.. note:: Once MSBuild diagnostic logging is enabled via ``/v:diag`` switch,
+   the key container name can be found by searching for
+   ``KeyContainerName=VS_KEY_XXXXXX`` in the output.
+
+The key container name can then be used in Obfuscar configuration,
+
+.. code-block:: xml
+
+   <Var name="KeyContainer" value="VS_KEY_XXXXXX" />
+
+If neither KeyFile nor KeyContainer is specified, Obfuscar normally throws an
+exception on signed assemblies. If an assembly is marked delay signed, the
+signing step will be skipped in case no key file is given.
+
+.. note:: With the special key file name auto, Obfuscar uses the value of the
+   AssemblyKeyFileAttribute instead (if existing).
 
 Configuration Fragments (2.2.5+)
 --------------------------------
