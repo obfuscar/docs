@@ -59,7 +59,7 @@ author = u'Ryan Williams, Calvin Rien, Lex Li, RemObjects Software, and other co
 # built documents.
 #
 # The short X.Y version.
-version = '2'
+version = '2.2'
 # The full version, including alpha/beta/rc tags.
 release = '2.2'
 
