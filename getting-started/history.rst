@@ -59,17 +59,18 @@ Inherited by Lex Li
 Lex Li was working on his commercial project
 `#SNMP Pro <https://sharpsnmp.com/>`_ in Apr 2013, and came across Emil's
 fork. He soon created a new fork and started to merge various patches he could
-find from the Internet to this [19]_ .
+find from the Internet to this fork [19]_ .
 
-Gradually Lex gained knowledge about Cecil and Obfuscar and started to heavily
-change the obfuscation process so as to better serve his own needs.
+Gradually Lex gained enough knowledge about Cecil and Obfuscar and started to
+heavily change the obfuscation process so as to better serve his own needs.
 
 Carlo from RemObjects also contributes to this new fork, since Jan 2014. The
 collaboration aims to keep the two forks in sync in all possible ways, though
 due to the varied needs and design goals of two parties the forks still
 present significant differences.
 
-The `project homepage <https://www.obfuscar.com>`_ is now switched, and the latest release is 2.*.
+The `project homepage <https://www.obfuscar.com>`_ is now launched, and the
+latest release is 2.*.
 
 .. rubric:: Footnotes
 

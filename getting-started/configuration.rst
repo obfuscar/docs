@@ -16,29 +16,29 @@ assemblies should be saved.
 Table of Settings
 -----------------
 
-====================  ============================================================
-Name                  Description
-====================  ============================================================
-InPath                Input file location
-OutPath               Output file location
-LogFile               Obfuscation log file path (mapping.txt)
-XmlMapping            Whether the log file should be of XML format
-KeyFile               Key file path
-KeyContainer          Key container name
-RegenerateDebugInfo   Whether to generate debug symbols for obfuscated assemblies
-MarkedOnly            Whether only to obfuscate marked items
-RenameProperties      Whether to rename properties
-RenameEvents          Whether to rename events
-RenameFields          Whether to rename fields (2.2.0+)
-KeepPublicApi         Whether to keep public API out of obfuscation
-HidePrivateApi        Whether to hide private API via obfuscation
-ReuseNames            Whether to reuse obfuscated names
-UseUnicodeNames       Whether to use Unicode characters as obfuscated names
-UseKoreanNames        Whether to use Korean characters as obfuscated names
-HideStrings           Whether to hide strings
-OptimizeMethods       Whether to optimize methods
-SuppressIldasm        Whether to inform ILdism that assemblies are obfuscated
-====================  ============================================================
+=================== ===========================================================
+Name                Description
+=================== ===========================================================
+InPath              Input file location
+OutPath             Output file location
+LogFile             Obfuscation log file path (mapping.txt)
+XmlMapping          Whether the log file should be of XML format
+KeyFile             Key file path
+KeyContainer        Key container name
+RegenerateDebugInfo Whether to generate debug symbols for obfuscated assemblies
+MarkedOnly          Whether only to obfuscate marked items
+RenameProperties    Whether to rename properties
+RenameEvents        Whether to rename events
+RenameFields        Whether to rename fields (2.2.0+)
+KeepPublicApi       Whether to keep public API out of obfuscation
+HidePrivateApi      Whether to hide private API via obfuscation
+ReuseNames          Whether to reuse obfuscated names
+UseUnicodeNames     Whether to use Unicode characters as obfuscated names
+UseKoreanNames      Whether to use Korean characters as obfuscated names
+HideStrings         Whether to hide strings
+OptimizeMethods     Whether to optimize methods
+SuppressIldasm      Whether to inform ILdism that assemblies are obfuscated
+=================== ===========================================================
 
 Variables, InPath and OutPath
 -----------------------------
@@ -51,7 +51,7 @@ the release as part of the Basic Example:
    <Obfuscator>
      <Var name="InPath" value=".\Obfuscator_Input" />
      <Var name="OutPath" value=".\Obfuscator_Output" />
-   
+
      <Module file="$(InPath)\BasicExampleExe.exe" />
      <Module file="$(InPath)\BasicExampleLibrary.dll" />
    </Obfuscator>
@@ -396,6 +396,8 @@ The key container name can then be used in Obfuscar configuration,
 .. code-block:: xml
 
    <Var name="KeyContainer" value="VS_KEY_XXXXXX" />
+
+.. important:: `KeyContainer` setting is supported in release 2.2.13 and above.
 
 If neither KeyFile nor KeyContainer is specified, Obfuscar normally throws an
 exception on signed assemblies. If an assembly is marked delay signed, the
