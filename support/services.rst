@@ -11,11 +11,14 @@ This page shows you where to find services.
 
 Community Support
 -----------------
-You can reach the Obfuscar user community by posting to `StackOverflow <http://stackoverflow.com/questions/tagged/obfuscar>`_ .
+You can reach the Obfuscar user community by,
+
+* Posting question on `Stack Overflow <http://stackoverflow.com/questions/tagged/obfuscar>`_ .
+* Reporting issues on `GitHub <https://github.com/obfuscar/obfuscar/issues>`_ .
 
 Commercial Support
 ------------------
-Commercial support is provided by LeXtudio, and its model is similar to `#SNMP Pro <https://pro.sharpsnmp.com/en/latest/support/services.html>`_ .
+Commercial support is provided by `LeXtudio Support Services <http://support.lextudio.com>`_ .
 
 Related Resources
 -----------------
