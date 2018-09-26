@@ -369,6 +369,23 @@ following line to the configuration file:
 If you only want to disable it on specific methods, use the SkipStringHiding
 elements.
 
+.. important:: This feature hides the strings in a reversible way so that your
+   code can remain valid, which means a de-obfuscation tool can reverse the
+   string contents easily. Therefore, never store confidential information as
+   strings in your assemblies, because this feature won't protect them from
+   being read.
+
+SuppressIldasm Attribute
+------------------------
+Microsoft designed an attribute ``SuppressIldasmAttribute``, which if set on an
+.NET assembly can indicate that ILDASM utility from Microsoft should not
+display IL of the assembly.
+
+.. important:: Obfuscar inserts this attribute if you enable this feature.
+   However, decompilers (ILSpy, .NET Reflector, JustDecompile, or dotPeek) do
+   not honor this attribute at all. Thus, practically speaking, it is a useless
+   feature designed by Microsoft.
+
 Signing of Strongly Named Assemblies
 ------------------------------------
 Signed assemblies will not work after obfuscation and must be re-signed.
