@@ -62,7 +62,8 @@ Typical exceptions might look like below,
    Mono.Cecil.AssemblyResolutionException: Failed to resolve assembly: 'xxxx, Version=x.x.x.x, Culture=neutral, PublicKeyToken=xxxx'
 
 Usually such exceptions happen when Obfuscar cannot locate dependent
-assemblies. You might add assembly search paths in configuration file.
+assemblies. You might add `assembly search paths <http://docs.obfuscar.com/getting-started/configuration.html#assembly-search-path-2-2-5>`_
+in configuration file.
 
 How to troubleshoot NotSupportedException?
 ------------------------------------------
