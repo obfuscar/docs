@@ -18,9 +18,9 @@ Compilation Steps
 -----------------
 .. note:: Assume that you have latest Visual Studio 2017 installed.
 
-1. Clone the Git repository from ``https://github.com/obfuscar/obfuscar.git``.
-1. Make sure ILSpy submodule is checked out.
-1. Run ``build.debug.bat`` to get debug build.
+#. Clone the Git repository from ``https://github.com/obfuscar/obfuscar.git``.
+#. Make sure ILSpy submodule is checked out.
+#. Run ``dist.pack.bat``.
 
 Related Resources
 -----------------
