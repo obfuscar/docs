@@ -16,11 +16,13 @@ files, which comes from a submodule of ILSpy.
 
 Compilation Steps
 -----------------
-.. note:: Assume that you have latest Visual Studio 2017 installed.
+.. important:: Assume that you have latest Visual Studio 2017/2019 installed.
 
 #. Clone the Git repository from ``https://github.com/obfuscar/obfuscar.git``.
 #. Make sure ILSpy submodule is checked out.
-#. Run ``dist.pack.bat``.
+#. Open Obfuscar.sln in Visual Studio and compile.
+
+.. note:: Run ``dist.pack.bat`` to compile via command line.
 
 Related Resources
 -----------------
