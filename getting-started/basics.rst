@@ -52,7 +52,8 @@ code base, one could easily run into a class named A (in the namespace A) with
 7 methods, 4 properties, and 5 fields named A, with several more methods,
 properties, and fields named a.
 
-To try it out, see Basic Example.
+To try it out, see :doc:`/tutorials/basics`. The sample project demonstrates
+how to use Obfusar NuGet package in your projects to perform obfuscation.
 
 Caveat
 ------
@@ -64,6 +65,15 @@ Deobfuscators such as `de4dot <https://bitbucket.org/0xd4d/de4dot>`_ make it
 easy to reverse most protection a commercial obfuscator might set. But note
 that the names obfuscated by Obfuscar still remains useful, as what's lost
 cannot be restored.
+
+.NET Core Global Tools
+----------------------
+.NET Core 2.1 SDK introduces global tools, and Obfuscar can be used as a global
+tool since release 2.2.15.
+
+#. Visit `the information page <https://www.nuget.org/packages/Obfuscar.GlobalTool/>`_ .
+#. Execute the command showed to install Obfuscar as a global tool.
+#. Once installed, run ``obfuscar.console`` command to perform obfuscation.
 
 Related Resources
 -----------------

@@ -22,7 +22,7 @@ Compilation Steps
 #. Make sure ILSpy submodule is checked out.
 #. Open Obfuscar.sln in Visual Studio and compile.
 
-.. note:: Run ``dist.pack.bat`` to compile via command line.
+.. note:: Alternatively, run ``dist.pack.bat`` to compile via command line.
 
 Related Resources
 -----------------
