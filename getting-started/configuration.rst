@@ -13,7 +13,7 @@ The configuration file is used to specify what assemblies should be obfuscated,
 where to find the dependencies for the assemblies, and where the obfuscated
 assemblies should be saved.
 
-The configuration file is a XML file with top-level element ``Obfuscator``.
+The configuration file is an XML file with top-level element ``Obfuscator``.
 
 Settings
 --------
@@ -23,8 +23,8 @@ Variables are typically used to store settings. Recommended variable names to us
 =================== ===========================================================
 Name                Description
 =================== ===========================================================
-InPath              Directory containing the input assembly, such as ``c:\\in``.
-OutPath             Directory to contain the obfuscated assembly, such as ``c:\\out`.
+InPath              Directory containing the input assemblies, such as ``c:\\in``.
+OutPath             Directory to contain the obfuscated assemblies, such as ``c:\\out``.
 LogFile             Obfuscation log file path (mapping.txt).
 XmlMapping          Whether the log file should be of XML format.
 KeyFile             Key file path, such as ``c:\folder\key.pfx``.
@@ -35,7 +35,7 @@ RenameProperties    Whether to rename properties.
 RenameEvents        Whether to rename events.
 RenameFields        Whether to rename fields (2.2.0+).
 KeepPublicApi       Whether to exclude public types and type members from obfuscation.
-HidePrivateApi      Whether to exclude private types and type members from obfuscation.
+HidePrivateApi      Whether to include private types and type members from obfuscation.
 ReuseNames          Whether to reuse obfuscated names.
 UseUnicodeNames     Whether to use Unicode characters as obfuscated names.
 UseKoreanNames      Whether to use Korean characters as obfuscated names.
@@ -77,11 +77,10 @@ it can be used in a module:
 
    <Module file="$(InPath)\BasicExampleExe.exe" />
 
-A few special variables have functionality besides supporting variable expansion:
+A few special variables have additional effects:
 
-- The variable ``InPath`` is used when resolving dependencies by searching the specified path. The default of ``Inpath`` is the current working directory (".").
-- The variable OutPath is used as the output path for the obfuscated assemblies and the logfile specified in the variable ``LogFile``. 
- The default of ``Inpath`` is the current working directory (".").
+- The variable ``InPath`` is used when resolving dependencies by searching the specified path. The default of ``InPath`` is the current working directory (".").
+- The variable ``OutPath`` is used as the output path for the obfuscated assemblies and the logfile specified in the variable ``LogFile``. The default of ``OutPath`` is the current working directory (".").
 
 Assembly Search Path (2.2.5+)
 -----------------------------
@@ -108,14 +107,14 @@ keep public items. You can achieve this by:
 
 This is the default behavior since version 2.2.0.
 
-Another common case is to obfuscate all types and type members, which you canachieved using
+Another common case is to obfuscate all types and type members, which you can achieve using
 
 .. code-block:: xml
 
    <Var name="KeepPublicApi" value="false" />
    <Var name="HidePrivateApi" value="true" />
 
-Of course to obfuscating nothing you can use
+Of course to obfuscate nothing you can use
 
 .. code-block:: xml
 
