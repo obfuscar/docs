@@ -2,7 +2,7 @@ Configuration
 =============
 By `Lex Li`_
 
-Obfuscar accepts a single command line argument, the path to its configuration
+Obfuscar accepts a single command line argument: the path to its configuration
 file.
 
 .. contents:: In this article
@@ -13,37 +13,41 @@ The configuration file is used to specify what assemblies should be obfuscated,
 where to find the dependencies for the assemblies, and where the obfuscated
 assemblies should be saved.
 
-Table of Settings
------------------
+The configuration file is an XML file with top-level element ``Obfuscator``.
+
+Settings
+--------
+
+Variables are typically used to store settings. Recommended variable names to use are:
 
 =================== ===========================================================
 Name                Description
 =================== ===========================================================
-InPath              Input file location
-OutPath             Output file location
-LogFile             Obfuscation log file path (mapping.txt)
-XmlMapping          Whether the log file should be of XML format
-KeyFile             Key file path
-KeyContainer        Key container name
-RegenerateDebugInfo Whether to generate debug symbols for obfuscated assemblies
-MarkedOnly          Whether only to obfuscate marked items
-RenameProperties    Whether to rename properties
-RenameEvents        Whether to rename events
-RenameFields        Whether to rename fields (2.2.0+)
-KeepPublicApi       Whether to keep public API out of obfuscation
-HidePrivateApi      Whether to hide private API via obfuscation
-ReuseNames          Whether to reuse obfuscated names
-UseUnicodeNames     Whether to use Unicode characters as obfuscated names
-UseKoreanNames      Whether to use Korean characters as obfuscated names
-HideStrings         Whether to hide strings
-OptimizeMethods     Whether to optimize methods
-SuppressIldasm      Whether to inform ILdism that assemblies are obfuscated
+InPath              Directory containing the input assemblies, such as ``c:\\in``.
+OutPath             Directory to contain the obfuscated assemblies, such as ``c:\\out``.
+LogFile             Obfuscation log file path (mapping.txt).
+XmlMapping          Whether the log file should be of XML format.
+KeyFile             Key file path, such as ``c:\folder\key.pfx``.
+KeyContainer        Key container name.
+RegenerateDebugInfo Whether to generate debug symbols for obfuscated assemblies.
+MarkedOnly          Whether to only obfuscate marked items. All items are obfuscated when set to ``false``.
+RenameProperties    Whether to rename properties.
+RenameEvents        Whether to rename events.
+RenameFields        Whether to rename fields (2.2.0+).
+KeepPublicApi       Whether to exclude public types and type members from obfuscation.
+HidePrivateApi      Whether to include private types and type members from obfuscation.
+ReuseNames          Whether to reuse obfuscated names.
+UseUnicodeNames     Whether to use Unicode characters as obfuscated names.
+UseKoreanNames      Whether to use Korean characters as obfuscated names.
+HideStrings         Whether to hide strings.
+OptimizeMethods     Whether to optimize methods.
+SuppressIldasm      Whether to include an attribute for ILDASM to indicate that assemblies are obfuscated.
 =================== ===========================================================
 
 Variables, InPath and OutPath
 -----------------------------
-The following is a is an example of a minimal configuration. It is provided in
-the release as part of the Basic Example:
+The following is an example of a minimal configuration. It is provided in
+the source code as part of the Basic Example:
 
 .. code-block:: xml
 
@@ -56,33 +60,32 @@ the release as part of the Basic Example:
      <Module file="$(InPath)\BasicExampleLibrary.dll" />
    </Obfuscator>
 
-In the example configuration, two variables are defined, InPath and OutPath,
-using the Var element, and two assemblies are listed for obfuscation, an
+In this sample, the two variables InPath and Output are defined
+using the ``Var`` element. The sample also specifies that two assemblies should be obfuscated: an
 executable and a dll.
 
-Variables defined using the Var element will be expanded in strings following
-the definition...After defining InPath as follows:
+Variables defined using the ``Var`` element will be expanded in strings following
+the definition. For example, when InPath is defined as:
 
 .. code-block:: xml
 
    <Var name="InPath" value=".\Obfuscator_Input" />
 
-It can be used in another location:
+it can be used in a module:
 
 .. code-block:: xml
 
    <Module file="$(InPath)\BasicExampleExe.exe" />
 
-In addition to being usable like macros, there are a few special variables
-that have additional effects. The variable InPath is used when trying to find
-dependencies (the specified path is searched), and the variable OutPath is
-used as the output path for the obfuscated assemblies and the map. If either
-InPath or OutPath is unspecified, they default to the current path (".").
+A few special variables have additional effects:
+
+- The variable ``InPath`` is used when resolving dependencies by searching the specified path. The default of ``InPath`` is the current working directory (".").
+- The variable ``OutPath`` is used as the output path for the obfuscated assemblies and the logfile specified in the variable ``LogFile``. The default of ``OutPath`` is the current working directory (".").
 
 Assembly Search Path (2.2.5+)
 -----------------------------
-This setting specifies an additional place to search for references. There can
-be multiple instances of this tag.
+This setting specifies one additional directory to search for referenced assemblies. There can
+be multiple instances of this setting, which are searched sequentially.
 
 .. code-block:: xml
 
@@ -91,8 +94,8 @@ be multiple instances of this tag.
 
 KeepPublicApi and HidePrivateApi
 --------------------------------
-A common case of assembly obfuscation is to strip out private information and
-keep public items. This can be achieved by setting the following combination,
+A common case of assembly obfuscation is to obfuscate the names of private types and type members and
+keep public items. You can achieve this by:
 
 .. code-block:: xml
 
@@ -102,41 +105,40 @@ keep public items. This can be achieved by setting the following combination,
 .. note:: By using above you don't need to set any obfuscation attribute or
    rule.
 
-This is the default setting since 2.2.0.
+This is the default behavior since version 2.2.0.
 
-Another common case is to strip out everything, which can be achieved by
-setting
+Another common case is to obfuscate all types and type members, which you can achieve using
 
 .. code-block:: xml
 
    <Var name="KeepPublicApi" value="false" />
    <Var name="HidePrivateApi" value="true" />
 
-Of course to keep everything we can use
+Of course to obfuscate nothing you can use
 
 .. code-block:: xml
 
    <Var name="KeepPublicApi" value="true" />
    <Var name="HidePrivateApi" value="false" />
 
-The last combination is which strips out public information only,
+The last combination obfuscates solely public types and type members:
 
 .. code-block:: xml
 
    <Var name="KeepPublicApi" value="false" />
    <Var name="HidePrivateApi" value="false" />
 
-It should be rarely used, but was the default for releases such as 2.1.*.
+It has little practical use, but was the default setting for version 2.1.*.
 
 Modules
 -------
-For each assembly to be obfuscated, there must be a Module element. Assemblies
-referenced by an assembly specified by a Module element must be resolvable,
-either via Cecil's regular resolution process, or they must be present in the
-path specified by InPath.
+The assemblies to be obfuscated are listed one-by-one as a separate ``Module`` element. 
+Assemblies
+referenced by an assembly specified by a ``Module`` element must be resolvable,
+either via Cecil's regular resolution process, via the
+path specified by InPath or via a directory listed as ``AssemblySearchPath``.
 
-Though additional assemblies are loaded for examination, only the specified
-assemblies will be obfuscated.
+Only assemblies specified in a ``Module`` element will be obfuscated. Resolved assemblies are not altered.
 
 Exclusion Rules by Configuration
 --------------------------------
