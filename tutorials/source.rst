@@ -12,14 +12,14 @@ This page shows you how to compile the source code of Obfuscar.
 Source Structure
 ----------------
 The Git repository contains most of the source files, except BAML parsing
-files, which comes from a submodule of ILSpy.
+files, which comes from a submodule of ConfuserEx.
 
 Compilation Steps
 -----------------
 .. important:: Assume that you have latest Visual Studio 2017/2019 installed.
 
 #. Clone the Git repository from ``https://github.com/obfuscar/obfuscar.git``.
-#. Make sure ILSpy submodule is checked out.
+#. Make sure ConfuserEx submodule is checked out.
 #. Open Obfuscar.sln in Visual Studio and compile.
 
 .. note:: Alternatively, run ``dist.pack.bat`` to compile via command line.
