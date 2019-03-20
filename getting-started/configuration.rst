@@ -301,7 +301,7 @@ Exclusion by Attributes in Code
 There's also some functionality where you can mark types with an attribute to
 prevent them from being obfuscated.
 
-`System.Reflection.ObfuscationAttribute <http://msdn.microsoft.com/en-us/library/system.reflection.obfuscationattribute(v=vs.110).aspx>`_
+`System.Reflection.ObfuscationAttribute <https://docs.microsoft.com/en-us/dotnet/api/system.reflection.obfuscationattribute>`_
 
 .. note:: The Obfuscar attribute defined in Obfuscar itself is obsolete.
 

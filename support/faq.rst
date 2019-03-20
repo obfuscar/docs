@@ -62,7 +62,7 @@ Typical exceptions might look like below,
    Mono.Cecil.AssemblyResolutionException: Failed to resolve assembly: 'xxxx, Version=x.x.x.x, Culture=neutral, PublicKeyToken=xxxx'
 
 Usually such exceptions happen when Obfuscar cannot locate dependent
-assemblies. You might add `assembly search paths <http://docs.obfuscar.com/getting-started/configuration.html#assembly-search-path-2-2-5>`_
+assemblies. You might add `assembly search paths <https://docs.obfuscar.com/getting-started/configuration.html#assembly-search-path-2-2-5>`_
 in configuration file.
 
 How to troubleshoot NotSupportedException?
@@ -99,7 +99,7 @@ How to troubleshoot TypeLoadException during reflection?
 After obfuscation, the application might not work and ``TypeLoadException`` is
 quite common a case. One such case is
 
-http://stackoverflow.com/questions/24058302/obfuscar-2-0-could-not-load-type-from-assembly
+https://stackoverflow.com/questions/24058302/obfuscar-2-0-could-not-load-type-from-assembly
 
 There can be other similar cases, where either explicitly or implicitly the
 application code itself requires an instance to be initialized at runtime by

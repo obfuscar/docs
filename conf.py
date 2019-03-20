@@ -382,7 +382,7 @@ epub_exclude_files = ['search.html']
 
 feed_num_items = 15
 feed_skip_regex = '(.)*index'
-feed_base_url = 'http://obfuscar.lextudio.com/en/latest'
+feed_base_url = 'https://docs.obfuscar.com/'
 feed_description = 'Obfuscar Documentation'
 feed_author = 'Ryan Williams, Calvin Rien, Lex Li, RemObjects Software, and other contributors'
 

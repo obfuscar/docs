@@ -3,5 +3,5 @@
         79
     ],
     "python.pythonPath": "${workspaceFolder}/../../../usr/local/bin/python3",
-    "restructuredtext.confPath": "/Users/lextm/obfuscar_docs"
+    "restructuredtext.confPath": "${workspaceFolder}"
 }
