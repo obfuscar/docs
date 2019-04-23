@@ -61,7 +61,7 @@ It makes debugging / reverse engineering very difficult, but wouldn't stop
 someone who really wants to reverse engineer it. It would at least slow them
 down, and would deter casual observers.
 
-Deobfuscators such as `de4dot <https://bitbucket.org/0xd4d/de4dot>`_ make it
+Deobfuscators such as `de4dot <https://github.com/0xd4d/de4dot>`_ make it
 easy to reverse most protection a commercial obfuscator might set. But note
 that the names obfuscated by Obfuscar still remains useful, as what's lost
 cannot be restored.
