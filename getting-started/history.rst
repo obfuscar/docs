@@ -70,7 +70,7 @@ due to the varied needs and design goals of two parties the forks still
 present significant differences.
 
 The `project homepage <https://www.obfuscar.com>`_ is now launched, and the
-latest release is 2.*.
+latest release is 2.2.*.
 
 .. rubric:: Footnotes
 
