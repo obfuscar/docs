@@ -2,6 +2,8 @@
     "editor.rulers": [
         79
     ],
-    "python.pythonPath": "${workspaceFolder}/../../../usr/local/bin/python3",
-    "restructuredtext.confPath": "${workspaceFolder}"
+    "restructuredtext.confPath": "${workspaceFolder}",
+    "restructuredtext.preview.name": "docutil",
+    "restructuredtext.languageServer.disabled": false,
+    "restructuredtext.workspaceRoot": "/Users/lextm/obfuscar_docs"
 }

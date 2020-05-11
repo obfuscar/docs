@@ -30,5 +30,6 @@ Related Resources
 
 - :doc:`/getting-started/basics`
 - :doc:`/getting-started/configuration`
+- :doc:`/tutorials/xamarin`
 - :doc:`/support/faq`
 - :doc:`/support/services`
