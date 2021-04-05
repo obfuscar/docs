@@ -2,7 +2,7 @@
 
 This document is derived from ASP.NET 5 [Contributing Guide](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md).
 
-Information on contributing to this repo is in the [Contributing Guide](https://github.com/dockpanelsuite/dockpanelsuite/blob/dev/CONTRIBUTING.md) in the Home repo.
+Information on contributing to this repo is in the [Contributing Guide](https://github.com/obfuscar/docs/blob/master/CONTRIBUTING.md) in the Home repo.
 
 The documentation is built using [Sphinx](http://sphinx-doc.org) and [reStructuredText](http://sphinx-doc.org/rest.html).
 
@@ -84,15 +84,15 @@ Author information should be placed in the _authors folder following the example
 
 **Step 1:** Open an Issue describing the article you wish to write and how it relates to existing content. Get approval to write your article.
 
-**Step 2:** Fork the `/dockpanelsuite_docs` repo.
+**Step 2:** Fork the `/docs` repo.
 
 **Step 3:** Create a `branch` for your article.
 
 **Step 4:** Write your article, placing the article in its own folder and any needed images in a _static folder located in the same folder as the article. If you have code samples, place them in a folder within the `/samples/` folder.
 
-**Step 5:** Submit a Pull Request from your branch to `dockpanelsuite_docs/master`.
+**Step 5:** Submit a Pull Request from your branch to `docs/master`.
 
-**Step 6:** Discuss the Pull Request with the DockPanel Suite maintainers; make any requested updates to your branch. When they are ready to accept the PR, they will add a :shipit: (`:shipit:`) comment.
+**Step 6:** Discuss the Pull Request with the Obfuscar maintainers; make any requested updates to your branch. When they are ready to accept the PR, they will add a :shipit: (`:shipit:`) comment.
 
 **Step 7:** The last step before your Pull Request is accepted is to [squash all commits](https://stackoverflow.com/questions/14534397/squash-all-my-commits-into-one-for-github-pull-request) into a single commit message. Do this in your branch, using the `rebase` git command. For example, if you want to squash the last 4 commits into a single commit, you would use:
 
