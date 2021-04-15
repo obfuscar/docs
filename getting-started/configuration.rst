@@ -42,6 +42,7 @@ UseKoreanNames      Whether to use Korean characters as obfuscated names.
 HideStrings         Whether to hide strings.
 OptimizeMethods     Whether to optimize methods.
 SuppressIldasm      Whether to include an attribute for ILDASM to indicate that assemblies are obfuscated.
+AnalyzeXaml         Whether to analyze XAML related metadata for obfuscation.
 =================== ===========================================================
 
 Variables, InPath and OutPath
