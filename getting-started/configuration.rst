@@ -33,7 +33,7 @@ RegenerateDebugInfo Whether to generate debug symbols for obfuscated assemblies.
 MarkedOnly          Whether to only obfuscate marked items. All items are obfuscated when set to ``false``.
 RenameProperties    Whether to rename properties.
 RenameEvents        Whether to rename events.
-RenameFields        Whether to rename fields (2.2.0+).
+RenameFields        Whether to rename fields.
 KeepPublicApi       Whether to exclude public types and type members from obfuscation.
 HidePrivateApi      Whether to include private types and type members from obfuscation.
 ReuseNames          Whether to reuse obfuscated names.
@@ -44,6 +44,8 @@ OptimizeMethods     Whether to optimize methods.
 SuppressIldasm      Whether to include an attribute for ILDASM to indicate that assemblies are obfuscated.
 AnalyzeXaml         Whether to analyze XAML related metadata for obfuscation.
 =================== ===========================================================
+
+The default values can be found in `source code <https://github.com/obfuscar/obfuscar/blob/2.2.30/Obfuscar/Settings.cs>`_ .
 
 Variables, InPath and OutPath
 -----------------------------
