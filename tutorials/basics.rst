@@ -17,7 +17,7 @@ Technical Details
 -----------------
 .. note:: The example assumes you have Visual Studio 2017 installed.
 
-The example consists of a solution that includes and executable and a dll.
+The example consists of a solution that includes an executable and a dll.
 
 The final executable project adds Obfuscar NuGet package from NuGet.org, and
 uses it in post build event to perform obfuscation.
