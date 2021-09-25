@@ -8,6 +8,20 @@ This page shows you the common questions.
    :local:
    :depth: 1
 
+How to understand the return code?
+----------------------------------
+The command line utility returns different codes in the following cases,
+
+* 0,
+
+  * when obfuscation finishes successfully.
+  * when showing version number or help.
+  * when no argument is provided.
+* 1,
+
+  * when any invalid argument is provided.
+  * when any exception happens at runtime.
+
 How to troubleshoot IOException?
 --------------------------------
 Typical exceptions might look like below,
