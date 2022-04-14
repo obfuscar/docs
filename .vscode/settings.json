@@ -2,8 +2,6 @@
     "editor.rulers": [
         79
     ],
-    "restructuredtext.confPath": "${workspaceFolder}",
-    "restructuredtext.preview.name": "docutil",
-    "restructuredtext.languageServer.disabled": false,
-    "restructuredtext.workspaceRoot": "/Users/lextm/obfuscar_docs"
+    "restructuredtext.preview.name": "docutils",
+    "esbonio.sphinx.confDir": "/Users/lextm/obfuscar_docs"
 }
