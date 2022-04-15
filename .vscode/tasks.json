@@ -1,9 +1,9 @@
 {
-    "version": "0.1.0",
+    "version": "2.0.0",
     "command": "make",
-    "isShellCommand": true,
-    "args": ["html"],
-	"showOutput": "silent",
+    "args": [
+        "html"
+    ],
         "problemMatcher": {
         "owner": "restructuredtext",
         "fileLocation": ["absolute"],
@@ -14,5 +14,32 @@
             "severity": 3,
             "message": 4
         }
-    }
+    },
+    "tasks": [
+        {
+            "label": "make",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "html"
+            ],
+            "problemMatcher": {
+                "owner": "restructuredtext",
+                "fileLocation": [
+                    "absolute"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):\\s+(WARNING|ERROR):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "severity": 3,
+                    "message": 4
+                }
+            },
+            "group": {
+                "_id": "build",
+                "isDefault": false
+            }
+        }
+    ]
 }
