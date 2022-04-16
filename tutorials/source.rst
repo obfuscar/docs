@@ -16,7 +16,7 @@ files, which comes from a submodule of ILSpy.
 
 Compilation Steps
 -----------------
-.. important:: Assume that you have latest Visual Studio 2019 installed.
+.. important:: Assume that you have latest Visual Studio installed.
 
 #. Clone the Git repository from ``https://github.com/obfuscar/obfuscar.git``.
 #. Make sure submodules are checked out.
