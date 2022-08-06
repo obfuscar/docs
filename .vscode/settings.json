@@ -2,6 +2,5 @@
     "editor.rulers": [
         79
     ],
-    "restructuredtext.preview.name": "docutils",
-    "esbonio.sphinx.confDir": "/Users/lextm/obfuscar_docs"
+    "esbonio.sphinx.confDir": "${workspaceFolder}"
 }
