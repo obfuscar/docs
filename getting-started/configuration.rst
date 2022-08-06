@@ -83,7 +83,7 @@ it can be used in a module:
 A few special variables have additional effects:
 
 - The variable ``InPath`` is used when resolving dependencies by searching the specified path. The default of ``InPath`` is the current working directory (".").
-- The variable ``OutPath`` is used as the output path for the obfuscated assemblies and the logfile specified in the variable ``LogFile``. The default of ``OutPath`` is the current working directory (".").
+- The variable ``OutPath`` is used as the output path for the obfuscated assemblies and the log file specified in the variable ``LogFile``. The default of ``OutPath`` is the current working directory (".").
 
 Assembly Search Path (2.2.5+)
 -----------------------------
@@ -146,39 +146,39 @@ Only assemblies specified in a ``Module`` element will be obfuscated. Resolved a
 Exclusion Rules by Configuration
 --------------------------------
 It is possible to include additional elements within the Module elements to
-skip types (the SkipTypes element), methods (the SkipMethod element), fields
-(SkipField), properties (SkipProperty), and events (SkipEvent, of course).
-Methods can be excluded from string obfuscation by SkipStringHiding. Special
-types such as enumerations can be excluded by SkipEnums.
+skip types (the ``SkipTypes`` element), methods (the ``SkipMethod`` element), fields
+(``SkipField``), properties (``SkipProperty``), and events (``SkipEvent``, of course).
+Methods can be excluded from string obfuscation by ``SkipStringHiding``. Special
+types such as enumerations can be excluded by ``SkipEnums``.
 
-The SkipNamespace element specifies a namespace that should be skipped. All
+The ``SkipNamespace`` element specifies a namespace that should be skipped. All
 types, methods, fields, etc., within the namespace will be skipped.
 
-The SkipType element specifies the name of the type to skip, including the
+The ``SkipType`` element specifies the name of the type to skip, including the
 full namespace. It can also specify whether to skip the method, fields,
 properties, and/or events within the type.
 
-The SkipMethod element specifies the name of the type containing the method,
+The ``SkipMethod`` element specifies the name of the type containing the method,
 a protection specifier, and a name or regex to match the method. The
 protection specifier is currently ignored, but will eventually be used for
 additional filtering.
 
-The SkipField element specifies the name of the type containing the field, a
+The ``SkipField`` element specifies the name of the type containing the field, a
 protection specifier, and a name or regex to match the field. The protection
 specifier is currently ignored, but will eventually be used for additional
 filtering.
 
-The SkipProperty element specifies the name of the type containing the
+The ``SkipProperty`` element specifies the name of the type containing the
 property, a protection specifier, and a name or regex to match the property.
 The protection specifier is currently ignored, but will eventually be used for
 additional filtering.
 
-The SkipEvent element specifies the name of the type containing the event, a
+The ``SkipEvent`` element specifies the name of the type containing the event, a
 protection specifier, and a name or regex to match the event. The protection
 specifier is currently ignored, but will eventually be used for additional
 filtering.
 
-The SkipStringHiding element works like the SkipMethod element, but specifies
+The ``SkipStringHiding`` element works like the ``SkipMethod`` element, but specifies
 within which methods not to obfuscate the string constants. To make it harder
 to analyze the code, Obfuscar normally replaces string loads by method calls
 to lookup functions, which incurs a small performance penalty.
@@ -247,24 +247,24 @@ A more complete example:
 
 To prevent all properties from being obfuscated, set the RenameProperties
 variable to "false" (it's an xsd boolean). To prevent specific properties
-from being renamed, use the SkipProperty element. It will also skip the
+from being renamed, use the ``SkipProperty`` element. It will also skip the
 property's accessors, get_XXX and set_XXX.
 
 To prevent all events from being obfuscated, set the RenameEvents variable to
 "false" (it's also xsd boolean). To prevent specific events from being
-renamed, use the SkipEvent element. It will also skip the event's accessors,
+renamed, use the ``SkipEvent`` element. It will also skip the event's accessors,
 add_XXX and remove_XXX.
 
 Inclusion Rules by Configuration (new)
 --------------------------------------
-To supplement Skip* elements, Force* has been added.
+To supplement ``Skip*`` elements, ``Force*`` has been added.
 
 Name Matching
 -------------
-The SkipMethod, SkipProperty, SkipEvent, SkipField, and SkipStringHiding
+The ``SkipMethod``, ``SkipProperty``, ``SkipEvent``, ``SkipField``, and ``SkipStringHiding``
 elements accept an rx attribute that specifies a regular expression used to
-match the name of the thing to be skipped. The SkipType, SkipMethod,
-SkipProperty, SkipEvent, SkipField, and SkipStringHiding elements all accept a
+match the name of the thing to be skipped. The ``SkipType``, ``SkipMethod``,
+``SkipProperty``, ``SkipEvent``, ``SkipField``, and ``SkipStringHiding`` elements all accept a
 name attribute that specifies a string with optional wildcards or a regular
 expression used to match the name of the thing to be skipped. For elements
 where both the name and rx attributes are specified, the rx attribute is
@@ -279,16 +279,16 @@ matches zero or more characters, and '?' matches a single character (e.g., the
 wildcard string som?t*g will match the string something).
 
 This behavior also applies to the value of the type attribute of the
-SkipMethod, SkipProperty, SkipEvent, SkipField, and SkipStringHiding elements.
+``SkipMethod``, ``SkipProperty``, ``SkipEvent``, ``SkipField``, and ``SkipStringHiding`` elements.
 
 Accessibility Check
 -------------------
-The SkipMethod, SkipProperty, SkipEvent, SkipField, and SkipStringHiding
+The ``SkipMethod``, ``SkipProperty``, ``SkipEvent``, ``SkipField``, and ``SkipStringHiding``
 elements also accept an attrib attribute.
 
-* Not specified or attrib='': All members are skipped from obfuscation.
-* attrib='public': Only public members are skipped.
-* attrib='protected': Only public and protected members are skipped.
+* Not specified or ``attrib=''``: All members are skipped from obfuscation.
+* ``attrib='public'``: Only public members are skipped.
+* ``attrib='protected'``: Only public and protected members are skipped.
 * All other values for attrib generate an error by now.
 
 Members which are internal or protected internal are not skipped when attrib
@@ -328,9 +328,9 @@ The rule of thumb is as below,
    detected, then all other rules are ignored. For members of a type, if the
    member itself does not contain such attributes, the type's attributes take
    effect.
-#. If no attribute is set, inclusion rules (Force*) are of top priority.
-#. If no inclusion rule is set, exclusion rules (Skip*) are of top priority.
-#. If no exclusion rule is set, KeepPublicApi and HidePrivateApi take effect.
+#. If no attribute is set, inclusion rules (``Force*``) are of top priority.
+#. If no inclusion rule is set, exclusion rules (``Skip*``) are of top priority.
+#. If no exclusion rule is set, ``KeepPublicApi`` and ``HidePrivateApi`` take effect.
 
 Control Generation of Obfuscated Names
 --------------------------------------
@@ -339,13 +339,13 @@ within their scopes. A type with name A may be part of namespace A.A and A.B.
 The same holds true for type members. Multiple types may have fields and
 properties with the same name.
 
-When using System.Xml.Serialization.XmlSerializer on obfuscated types, the
+When using ``System.Xml.Serialization.XmlSerializer`` on obfuscated types, the
 names of generated Xml elements and attributes have to be specified with one
-of the XmlXXXXXAttribute attributes. This is because the original type and
+of the ``XmlXXXXXAttribute`` attributes. This is because the original type and
 member names do not exist any more after obfuscation. For some reasons the
-XmlSerializer uses the obfuscated names internally even though they are
+``XmlSerializer`` uses the obfuscated names internally even though they are
 overridden by attributes. Because of that it fails on duplicate names. The
-same is true for the XML Serializer Generator-Tool (Sgen.exe).
+same is true for the XML Serializer Generator Tool (Sgen.exe).
 
 You can work around this problem by setting the ReuseNames variable to false.
 In this case the obfuscator does not reuse names for types, fields and
@@ -361,7 +361,7 @@ Add the following line to the configuration file to enable unique names:
 Control String Hiding
 ---------------------
 By default Obfuscar hides all string constants by replacing the string load
-(LDSTR opcode) by calls to methods which return the string from a buffer. This
+(``LDSTR`` opcode) by calls to methods which return the string from a buffer. This
 buffer is allocated on startup (in a static constructor) by reading from a
 XOR-encoded UTF8 byte array containing all strings. This comes with a small
 performance cost. You can disable this feature completely by adding the

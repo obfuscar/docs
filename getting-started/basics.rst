@@ -53,7 +53,7 @@ code base, one could easily run into a class named A (in the namespace A) with
 properties, and fields named a.
 
 To try it out, see :doc:`/tutorials/basics`. The sample project demonstrates
-how to use Obfusar NuGet package in your projects to perform obfuscation.
+how to use Obfuscar NuGet package in your projects to perform obfuscation.
 
 Caveat
 ------
