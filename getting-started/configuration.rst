@@ -143,6 +143,10 @@ path specified by InPath or via a directory listed as ``AssemblySearchPath``.
 
 Only assemblies specified in a ``Module`` element will be obfuscated. Resolved assemblies are not altered.
 
+It is highly recommended that you list assemblies one by one, and you can write simple PowerShell scripts
+to iterate files in the folder and generate a list of ``Module`` tags. Thomas Caudal introduced a ``Modules``
+tag that supports include/exclude rules, and you can learn more from `this pull request <https://github.com/obfuscar/obfuscar/pull/254#issuecomment-581113846>`_.
+
 Exclusion Rules by Configuration
 --------------------------------
 It is possible to include additional elements within the Module elements to
