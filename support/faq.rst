@@ -142,6 +142,11 @@ reflection can still find them out.
    obfuscation in small batches, so that you can quickly find out what items
    should be included or excluded.
 
+.. note:: Obfuscar intentionally skips many classes used in WPF/XAML. However,
+   due to limitation of the ILSpy maintained BAML library, there can still be
+   a lot of names not skipped properly, which requires extra skip rules to be
+   added to configuration file.
+
 How to troubleshoot TypeLoadException if a method does not have implementation?
 ----------------------------------------------------------------------------------
 One such case is
