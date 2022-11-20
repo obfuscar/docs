@@ -136,6 +136,7 @@ reflection can still find them out.
    * Names used in dependency injection
    * Names used in reflection (used a lot in MVC for example)
    * Names used in ``DebuggerDisplayAttribute`` or similar attributes
+   * Things used in ``dynamic`` context
    * and many more.
 
    Thus, if the obfuscated program does not work for you, try to add items to
