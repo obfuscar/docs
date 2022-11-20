@@ -118,6 +118,7 @@ https://stackoverflow.com/questions/24058302/obfuscar-2-0-could-not-load-type-fr
 There can be other similar cases, where either explicitly or implicitly the
 application code itself requires an instance to be initialized at runtime by
 reflection.
+
 Since reflection requires metadata, which obfuscation manipulates heavily,
 such initialization could fail.
 
@@ -125,6 +126,21 @@ The workaround is to skip such types or methods in obfuscation, so that
 reflection can still find them out.
 
 .. note:: It is rarely a bug of Obfuscar.
+
+.. important:: In general, it is impossible to obfuscate a lot of classes and
+   their members due to .NET itself or the frameworks used in the project.
+
+   For example, there are,
+
+   * Weak references used in XAML/AXML (used in WPF/UWP/Xamarin)
+   * Names used in dependency injection
+   * Names used in reflection (used a lot in MVC for example)
+   * Names used in ``DebuggerDisplayAttribute`` or similar attributes
+   * and many more.
+
+   Thus, if the obfuscated program does not work for you, try to add items to
+   obfuscation in small batches, so that you can quickly find out what items
+   should be included or excluded.
 
 How to troubleshoot TypeLoadException if a method does not have implementation?
 ----------------------------------------------------------------------------------
@@ -143,8 +159,14 @@ can also be fired at GitHub.
 How to analyze exception call stack if obfuscated?
 ---------------------------------------------------
 Obfuscation replaces class and method names so that exception call stacks
-would be difficult to read. But there is
+would be difficult to read.
+
+But there is
 `a separate open source project called ObfuscarMappingParser <https://github.com/BrokenEvent/ObfuscarMappingParser>`_ to address the challenge.
+
+.. warning:: There is no affliation between Obfuscar and ObfuscarMappingParser.
+   So, if you hit any issues with ObfuscarMappingParser please report to its own
+   authors.
 
 Related Resources
 -----------------

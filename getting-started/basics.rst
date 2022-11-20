@@ -75,6 +75,9 @@ tool since release 2.2.15.
 #. Execute the command showed to install Obfuscar as a global tool.
 #. Once installed, run ``obfuscar.console`` command to perform obfuscation.
 
+.. important:: Due to life cycle of .NET Core SDK, latest Obfuscar release only
+   supports the Microsoft supported SDK version.
+
 Related Resources
 -----------------
 

@@ -141,11 +141,14 @@ referenced by an assembly specified by a ``Module`` element must be resolvable,
 either via Cecil's regular resolution process, via the
 path specified by InPath or via a directory listed as ``AssemblySearchPath``.
 
-Only assemblies specified in a ``Module`` element will be obfuscated. Resolved assemblies are not altered.
+Only assemblies specified in a ``Module`` element will be obfuscated. Resolved
+assemblies are not altered.
 
 It is highly recommended that you list assemblies one by one, and you can write simple PowerShell scripts
-to iterate files in the folder and generate a list of ``Module`` tags. Thomas Caudal introduced a ``Modules``
-tag that supports include/exclude rules, and you can learn more from `this pull request <https://github.com/obfuscar/obfuscar/pull/254#issuecomment-581113846>`_.
+to iterate files in the folder and generate a list of ``Module`` tags.
+
+.. note:: A more complex way of specifying assemblies with ``Modules`` element were
+   added by Thomas Caudal. You can refer to `this pull request <https://github.com/obfuscar/obfuscar/pull/254#issuecomment-581113846>`_. 
 
 Exclusion Rules by Configuration
 --------------------------------
@@ -361,6 +364,12 @@ Add the following line to the configuration file to enable unique names:
 .. code-block:: xml
 
    <Var name="ReuseNames" value="false" />
+
+You can use ``UseUnicodeNames`` and ``UseKoreanNames`` to further control the
+characters used in obfuscated names. Unicode characters are often not readable,
+while Korean characters look almost the same to most audience. They provide
+good alternatives if you think the default characters do not provide the
+strongest obfuscation.
 
 Control String Hiding
 ---------------------
