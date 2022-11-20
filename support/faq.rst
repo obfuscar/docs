@@ -138,6 +138,8 @@ reflection can still find them out.
    * Names used in ``DebuggerDisplayAttribute`` or similar attributes
    * Things used in ``dynamic`` context
    * Setting names used in .NET configuration system
+   * Names used in plug-in framework like Microsoft Extension Framework or
+     Mono.Addins
    * and many more.
 
    Thus, if the obfuscated program does not work for you, try to add items to
