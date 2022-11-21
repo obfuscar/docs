@@ -30,10 +30,8 @@ about What It Does.
 .. image:: _static/obfuscar.png
 
 The current release is Obfuscar 2.x. This is a port of Obfuscar 1.5.4 to the
-latest Mono.Cecil library. By using this new library Obfuscar now supports
-.NET 4.0 assemblies. Because there are a lot of subtle changes in Cecil's new
-API and patched merged from different sources, this release of Obfuscar must
-be considered unstable.
+latest Mono.Cecil library. There were a lot of subtle changes in Cecil's new API
+and patches merged from different sources.
 
 .. note:: Since version 1.5 the attrib attribute is evaluated correctly. Be
    sure to check if there are any unintended attrib values from the example in
