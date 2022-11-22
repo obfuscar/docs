@@ -167,19 +167,13 @@ can also be fired at GitHub.
 
 How to analyze exception call stack if obfuscated?
 ---------------------------------------------------
-Obfuscation replaces class and method names so that exception call stacks
-would be difficult to read.
-
-But there is
-`a separate open source project called ObfuscarMappingParser <https://github.com/BrokenEvent/ObfuscarMappingParser>`_ to address the challenge.
-
-.. warning:: There is no affliation between Obfuscar and ObfuscarMappingParser.
-   So, if you hit any issues with ObfuscarMappingParser please report to its own
-   authors.
+You can refer to :doc:`/getting-started/ecosystem` to learn about
+ObfuscarMappingParser.
 
 Related Resources
 -----------------
 
 - :doc:`/getting-started/basics`
 - :doc:`/getting-started/configuration`
+- :doc:`/getting-started/ecosystem`
 - :doc:`/tutorials/basics`

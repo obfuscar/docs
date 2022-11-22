@@ -7,3 +7,4 @@ Getting Started
    basics
    configuration
    history
+   ecosystem

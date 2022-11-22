@@ -82,4 +82,5 @@ Related Resources
 -----------------
 
 - :doc:`/getting-started/history`
+- :doc:`/getting-started/ecosystem`
 - :doc:`/tutorials/basics`
