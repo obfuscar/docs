@@ -65,6 +65,11 @@ assemblies. You might upgrade to a newer version of Obfuscar (if exists) or
 skip such assemblies in obfuscation process (as usually they are already
 obfuscated).
 
+However, if you are obfuscating a .NET Core project, make sure your config file
+points to the right assemblies (``*.dll``), not the native executable added by
+.NET CLI (``*.exe``). Please use a tool like ILSpy to verify if a file is .NET
+managed or native.
+
 How to troubleshoot ResolutionException or AssemblyResolutionException?
 -----------------------------------------------------------------------
 Typical exceptions might look like below,
