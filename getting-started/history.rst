@@ -88,7 +88,7 @@ latest release is 2.2.*.
 .. [12] https://groups.google.com/forum/#!topic/obfuscar/PYs0KNps8mk
 .. [13] https://groups.google.com/forum/#!topic/obfuscar/2LY3WoU72IQ
 .. [14] https://groups.google.com/forum/#!topic/obfuscar/Fy0wFMVpA9Y
-.. [15] http://blogs.remobjects.com/blogs/mh/2010/01/12/p303
+.. [15] https://blogs.remobjects.com/2010/10/29/oxfuscator-introduction/
 .. [16] http://code.remobjects.com/p/obfuscar
 .. [17] https://bitbucket.org/darktable/obfuscar/wiki/Home
 .. [18] https://github.com/AngryAnt/obfuscar
