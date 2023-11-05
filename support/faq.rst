@@ -139,7 +139,7 @@ reflection can still find them out.
 
    * Weak references used in XAML/AXML (used in WPF/UWP/Xamarin)
    * Names used in dependency injection
-   * Names used in reflection (used a lot in MVC for example)
+   * Names used in reflection (used a lot in ASP.NET MVC for example)
    * Names used in ``DebuggerDisplayAttribute`` or similar attributes
    * Things used in ``dynamic`` context
    * Setting names used in .NET configuration system
