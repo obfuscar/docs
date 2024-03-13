@@ -53,6 +53,7 @@ The documentation section includes the following topics,
     tutorials/index
     support/index
     contribute/index
+    privacy
 
 Contribute to Documentation
 ---------------------------
