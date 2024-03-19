@@ -113,7 +113,7 @@ Using Obfuscar can reveal issues with an improper AndroidX migration in Xamarin.
 You should update "android.support.v7.widget.Toolbar" to "androidx.appcompat.widget.Toolbar" in ``Toolbar.xml``. You should rename the file to ``Toolbar.axml``. You should update "android.support.design.widget.TabLayout" to "com.google.android.material.tabs.TabLayout" in ``Tabbar.xml``. You should rename the file to ``Tabbar.axml``.
 
 The `Xamarin.Forms team recommend removing these files altogether
-<https://docs.microsoft.com/en-us/xamarin/xamarin-forms/troubleshooting/questions/forms5-migration#remove-axml-files>`_
+<https://learn.microsoft.com/xamarin/xamarin-forms/troubleshooting/questions/forms5-migration#remove-axml-files>`_
 , but you may encounter other issues when running your Android app after doing this. 
 
 Dependency injection errors

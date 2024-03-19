@@ -311,16 +311,16 @@ Exclusion by Attributes in Code
 There's also some functionality where you can mark types with an attribute to
 prevent them from being obfuscated.
 
-`System.Reflection.ObfuscationAttribute <https://docs.microsoft.com/en-us/dotnet/api/system.reflection.obfuscationattribute>`_
+`System.Reflection.ObfuscationAttribute <https://learn.microsoft.com/dotnet/api/system.reflection.obfuscationattribute>`_
 
 .. note:: The Obfuscar attribute defined in Obfuscar itself is obsolete.
 
-And if you only want specific classes obfuscated, you can set the MarkedOnly
-variable to "true" (also an xsd boolean), and apply the Obfuscation attribute
-to the things you want obfuscated. This is done in the ObfuscarTests project
+And if you only want specific classes obfuscated, you can set the ``MarkedOnly``
+variable to ``true`` (also an xsd boolean), and apply the ``ObfuscationAttribute``
+to the things you want obfuscated. This is done in the ``ObfuscarTests`` project
 (included w/ the source...it's intended to be a place for unit tests, but for
 now does little) to obfuscate a subset of the classes. For example, if
-MarkedOnly is set to true, to include obfuscation of X, its methods, fields,
+``MarkedOnly`` is set to true, to include obfuscation of X, its methods, fields,
 resources, etc.
 
 Inclusion/Exclusion Rule Priorities
