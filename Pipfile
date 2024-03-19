@@ -5,9 +5,11 @@ name = "pypi"
 
 [packages]
 sphinx = "*"
-sphinx-rtd-theme = "*"
+sphinx-copybutton = "*"
+sphinx-sitemap = "*"
+furo = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.7"
+python_version = "3.11"

@@ -31,8 +31,13 @@ sys.path.insert(0, os.path.abspath('_ext'))
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.intersphinx'
+    'sphinx.ext.intersphinx',
+    "sphinx_sitemap",
+    "sphinx_copybutton",
 ]
+
+html_baseurl = "https://docs.lextudio.com/obfuscar/"
+sitemap_url_scheme = "{link}"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -50,7 +55,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'obfuscar'
-copyright = u'2007-2013 Ryan Williams, Calvin Rien, Lex Li, RemObjects Software, and other contributors'
+copyright = u'2007-2024 Ryan Williams, Calvin Rien, Lex Li, RemObjects Software, and other contributors'
 author = u'Ryan Williams, Calvin Rien, Lex Li, RemObjects Software, and other contributors'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -67,7 +72,7 @@ release = '2.2'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = "en"
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -96,6 +101,7 @@ exclude_patterns = ['_build']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
+pygments_dark_style = "monokai"
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
@@ -116,35 +122,37 @@ todo_include_todos = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 
-# This allows sphinx_rtd_theme to work locally
-on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
-
-html_context = {
-    'on_rtd' : on_rtd,
-    'display_github': True,
-    'github_user': 'obfuscar',
-    'github_repo': 'docs',
-    'github_version': 'master/',
-}
-
-if not on_rtd:
-    import sphinx_rtd_theme
-    html_theme = 'sphinx_rtd_theme'
-    html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-    
-#html_theme = 'default'
+html_theme = 'furo'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#html_theme_options = {}
+html_theme_options = {
+    "source_repository": "https://github.com/obfuscar/docs",
+    "source_branch": "master",
+    "source_directory": "/",
+    "footer_icons": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/obfuscar/docs",
+            "html": "",
+            "class": "fa-brands fa-solid fa-github fa-2x",
+        },
+    ],
+}
+
+html_css_files = [
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/fontawesome.min.css",
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/solid.min.css",
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/brands.min.css",
+]
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-#html_title = None
+html_title = "Obfuscar Documentation"
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
@@ -385,7 +393,7 @@ epub_exclude_files = ['search.html']
 
 feed_num_items = 15
 feed_skip_regex = '(.)*index'
-feed_base_url = 'https://docs.obfuscar.com/'
+feed_base_url = 'https://docs.lextudio.com/obfuscar/'
 feed_description = 'Obfuscar Documentation'
 feed_author = 'Ryan Williams, Calvin Rien, Lex Li, RemObjects Software, and other contributors'
 
