@@ -49,6 +49,7 @@ The documentation section includes the following topics,
 .. toctree::
     :titlesonly:
 
+    Visit Docs Home <https://docs.lextudio.com>
     getting-started/index
     tutorials/index
     support/index
