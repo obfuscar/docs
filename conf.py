@@ -34,7 +34,10 @@ extensions = [
     'sphinx.ext.intersphinx',
     "sphinx_sitemap",
     "sphinx_copybutton",
+    'notfound.extension',
 ]
+
+notfound_urls_prefix = "/obfuscar/"
 
 html_baseurl = "https://docs.lextudio.com/obfuscar/"
 sitemap_url_scheme = "{link}"
