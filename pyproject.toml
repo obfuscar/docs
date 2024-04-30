@@ -1,2 +1,0 @@
-[tool.esbonio.sphinx]
-buildCommand = ["sphinx-build", "-M", "html", ".", "./_build"]
