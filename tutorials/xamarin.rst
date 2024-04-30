@@ -6,12 +6,8 @@ By Edward Brey and Ronan Burke
 This page shows how to automate Obfuscar for Xamarin.Android using MSBuild.
 Integration for other Xamarin platforms is similar.
 
-.. contents:: In this article:
-  :local:
-  :depth: 1
-
 Nuget Package
-----------------
+-------------
 Install the Obfuscar NuGet package into the Xamarin.Android project.
 
 .. code-block:: powershell

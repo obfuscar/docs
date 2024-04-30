@@ -1,13 +1,7 @@
 Contributors
 ============
 
-By `Lex Li`_
-
 This page shows you the contributors.
-
-.. contents:: In this article:
-  :local:
-  :depth: 1
 
 Previous Contributors
 ---------------------

@@ -1,16 +1,10 @@
 Project History
 ===============
 
-By `Lex Li`_
-
 The popularity of managed programming languages and their ease of
 decompilation introduce a common issue, "How can I protect my binaries?" [1]_.
 Obfuscation has been invented to add some protection. But most of obfuscator
 products are commercial and really expensive.
-
-.. contents:: In this article:
-  :local:
-  :depth: 1
 
 Started by Ryan
 ---------------

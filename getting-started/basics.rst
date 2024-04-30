@@ -1,16 +1,10 @@
 What does Obfuscar do?
 ======================
 
-By `Lex Li`_
-
 Basically, Obfuscar scrambles the metadata in a set of assemblies. It renames
 everything to the minimal set of names that can be used to identify them,
 given signatures and type information. Since these new names are shorter than
 the old ones, it also dramatically shrinks executable size.
-
-.. contents:: In this article:
-  :local:
-  :depth: 1
 
 An Example
 ----------

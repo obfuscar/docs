@@ -1,13 +1,7 @@
 Basic Example
 =============
 
-By `Lex Li`_
-
 This page shows you the basics about Obfuscar.
-
-.. contents:: In this article:
-  :local:
-  :depth: 1
 
 Folder Structure
 ----------------

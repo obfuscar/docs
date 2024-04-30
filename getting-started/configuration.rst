@@ -1,13 +1,8 @@
 Configuration
 =============
-By `Lex Li`_
 
 Obfuscar accepts a single command line argument: the path to its configuration
 file.
-
-.. contents:: In this article
-   :local:
-   :depth: 1
 
 The configuration file is used to specify what assemblies should be obfuscated,
 where to find the dependencies for the assemblies, and where the obfuscated

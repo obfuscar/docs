@@ -1,13 +1,7 @@
 Support Services
 ================
 
-By `Lex Li`_
-
 This page shows you where to find services.
-
-.. contents:: In this article:
-  :local:
-  :depth: 1
 
 Community Support
 -----------------

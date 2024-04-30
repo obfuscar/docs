@@ -1,12 +1,7 @@
 Frequent Asked Questions
 ========================
-By `Lex Li`_
 
 This page shows you the common questions.
-
-.. contents:: In this article
-   :local:
-   :depth: 1
 
 How to understand the return code?
 ----------------------------------

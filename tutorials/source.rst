@@ -1,13 +1,7 @@
 Compiling Source Code
 =====================
 
-By `Lex Li`_
-
 This page shows you how to compile the source code of Obfuscar.
-
-.. contents:: In this article:
-  :local:
-  :depth: 1
 
 Source Structure
 ----------------

@@ -1,13 +1,7 @@
 GitHub Guide
 ============
 
-By `Lex Li`_
-
 This page shows you how to use Obfuscar repo on GitHub to collaborate.
-
-.. contents:: In this article:
-  :local:
-  :depth: 1
 
 Submitting a Patch
 ------------------
