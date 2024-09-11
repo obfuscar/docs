@@ -65,9 +65,9 @@ cannot be restored.
 .NET Core 2.1 SDK introduces global tools, and Obfuscar can be used as a global
 tool since release 2.2.15.
 
-#. Visit `the information page <https://www.nuget.org/packages/Obfuscar.GlobalTool/>`_ .
-#. Execute the command showed to install Obfuscar as a global tool.
-#. Once installed, run ``obfuscar.console`` command to perform obfuscation.
+#. To install Obfuscar as global tool execute: ``dotnet tool install --global Obfuscar.GlobalTool``
+#. Once installed, you can call ``obfuscar.console`` to run Obfuscar.
+#. Visit `the NuGet page <https://www.nuget.org/packages/Obfuscar.GlobalTool/>`_ for more information.
 
 .. important:: Due to life cycle of .NET Core SDK, latest Obfuscar release only
    supports the Microsoft supported SDK version.
