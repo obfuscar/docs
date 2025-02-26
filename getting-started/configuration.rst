@@ -27,6 +27,7 @@ KeyContainer        Key container name.
 RegenerateDebugInfo Whether to generate debug symbols for obfuscated assemblies.
 MarkedOnly          Whether to only obfuscate marked items. All items are obfuscated when set to ``false``.
 RenameProperties    Whether to rename properties.
+KeepProperties      Whether to keep properties from removal.
 RenameEvents        Whether to rename events.
 RenameFields        Whether to rename fields.
 KeepPublicApi       Whether to exclude public types and type members from obfuscation.
@@ -40,7 +41,7 @@ SuppressIldasm      Whether to include an attribute for ILDASM to indicate that 
 AnalyzeXaml         Whether to analyze XAML related metadata for obfuscation.
 =================== ===========================================================
 
-The default values can be found in `source code <https://github.com/obfuscar/obfuscar/blob/2.2.30/Obfuscar/Settings.cs>`_ .
+The default values can be found in `source code <https://github.com/obfuscar/obfuscar/blob/2.2.41/Obfuscar/Settings.cs>`_ .
 
 Variables, InPath and OutPath
 -----------------------------
