@@ -37,7 +37,7 @@ After obfuscation, the code can be decompiled (via ILSpy) to:
 
        public A()
        {
-               this.A();
+               this.a();
                this.a.Text = new A.A("Some Text").A();
        }
 
@@ -47,7 +47,8 @@ code base, one could easily run into a class named A (in the namespace A) with
 properties, and fields named a.
 
 To try it out, see :doc:`/tutorials/basics`. The sample project demonstrates
-how to use Obfuscar NuGet package in your projects to perform obfuscation.
+how to use Obfuscar NuGet package in your .NET Framework projects to perform
+obfuscation.
 
 Caveat
 ------
@@ -62,15 +63,30 @@ cannot be restored.
 
 .NET Core Global Tools
 ----------------------
-.NET Core 2.1 SDK introduces global tools, and Obfuscar can be used as a global
-tool since release 2.2.15.
+Starting from .NET Core 2.1 SDK, Microsoft has introduced the concept of
+global tools. Global tools are .NET Core applications that are installed
+system-wide and can be run from any command prompt. This is similar to
+traditional command-line tools, but with the added benefit of being able to
+use the .NET Core runtime to run them.
+
+Obfuscar can be used as a global tool since its 2.2.15 release. This allows
+you to install Obfuscar as a global tool and run it from any command prompt.
 
 #. To install Obfuscar as global tool execute: ``dotnet tool install --global Obfuscar.GlobalTool``
 #. Once installed, you can call ``obfuscar.console`` to run Obfuscar.
-#. Visit `the NuGet page <https://www.nuget.org/packages/Obfuscar.GlobalTool/>`_ for more information.
 
-.. important:: Due to life cycle of .NET Core SDK, latest Obfuscar release only
-   supports the Microsoft supported SDK version.
+Visit `the NuGet page <https://www.nuget.org/packages/Obfuscar.GlobalTool/>`_ for more information.
+
+.. important::
+
+   Due to the short life cycle of .NET Core SDK, latest Obfuscar release won't
+   work with end-of-life releases. You need to read Microsoft documentation to
+   find out which SDK versions are supported.
+
+.. important::
+
+   If you are working on .NET Core/.NET projects, using this global tool is
+   highly recommended than using the NuGet package.
 
 Related Resources
 -----------------
