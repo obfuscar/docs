@@ -42,7 +42,7 @@ AnalyzeXaml         Whether to analyze XAML related metadata for obfuscation.
 SkipGenerated       Whether to skip certain types marked with compiler-generated attributes during obfuscation.
 =================== ===========================================================
 
-The default values can be found in `source code <https://github.com/obfuscar/obfuscar/blob/2.2.41/Obfuscar/Settings.cs>`_ .
+The default values can be found in `source code <https://github.com/obfuscar/obfuscar/blob/2.2.49/Obfuscar/Settings.cs>`_ .
 
 Variables, InPath and OutPath
 -----------------------------
@@ -488,9 +488,21 @@ This is particularly useful when working with assemblies that contain compiler-g
 
 By default, this setting is ``false``, meaning such compiler-generated types are included in obfuscation.
 
-If you cannot use this setting, you can also use the ``SkipType`` element to exclude specific types from obfuscation.
+.. important:: This setting is in preview and might be removed in a future version.
 
-.. note:: This setting is only available in Obfuscar version 2.2.48 and later.
+You can use the ``SkipType`` element with the ``decoratorAll`` attribute to exclude such compiler-generated types:
+
+.. code-block:: xml
+
+   <Module file="$(InPath)\testmvc6.dll">
+     <!-- Skip types that have ALL of these attributes (comma-separated) -->
+     <SkipType name="*" decoratorAll="System.Runtime.CompilerServices.CompilerGeneratedAttribute,Microsoft.CodeAnalysis.EmbeddedAttribute" />
+   </Module>
+
+This approach gives you more fine-grained control over which attributes trigger type skipping. The ``decoratorAll`` requires all listed attributes to be present (equivalent to the behavior of ``SkipGenerated=true``).
+
+.. note:: The global ``SkipGenerated`` setting is only available in Obfuscar version 2.2.48 and later.
+.. note:: The ``decoratorAll`` attribute as well as the ``decorator`` attribute for ``SkipType`` are available in version 2.2.49 and later.
 
 Related Resources
 -----------------
