@@ -39,6 +39,7 @@ HideStrings         Whether to hide strings.
 OptimizeMethods     Whether to optimize methods.
 SuppressIldasm      Whether to include an attribute for ILDASM to indicate that assemblies are obfuscated.
 AnalyzeXaml         Whether to analyze XAML related metadata for obfuscation.
+SkipGenerated       Whether to skip certain types marked with compiler-generated attributes during obfuscation.
 =================== ===========================================================
 
 The default values can be found in `source code <https://github.com/obfuscar/obfuscar/blob/2.2.41/Obfuscar/Settings.cs>`_ .
@@ -474,6 +475,22 @@ TestIncludeModule.xml:
    <Include>
      <SkipMethod type='SkipVirtualMethodTest.Interface1' name='Method1' />
    </Include>
+
+SkipGenerated
+--------------
+This setting instructs Obfuscar to skip obfuscation of types that have compiler-generated attributes. When set to ``true``, any type marked with both attributes of ``[CompilerGenerated]`` and ``[Embedded]`` attributes will be excluded from obfuscation.
+
+This is particularly useful when working with assemblies that contain compiler-generated code to support latest C# language features, where obfuscating these types might cause runtime issues or decompilation issues.
+
+.. code-block:: xml
+
+   <Var name="SkipGenerated" value="true" />
+
+By default, this setting is ``false``, meaning such compiler-generated types are included in obfuscation.
+
+If you cannot use this setting, you can also use the ``SkipType`` element to exclude specific types from obfuscation.
+
+.. note:: This setting is only available in Obfuscar version 2.2.48 and later.
 
 Related Resources
 -----------------
