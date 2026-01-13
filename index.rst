@@ -12,6 +12,12 @@ Obfuscar Documentation
    :doc:`Getting Started <getting-started/index>` instructions for installing
    the latest version from NuGet.
 
+.. warning::
+   Environment-variable expansion inside Obfuscar configuration files is deprecated and will be removed in a future release. Please avoid using environment-variable syntax in project configuration files and consult the Getting Started guide for migration steps.
+
+.. warning::
+   Relative paths in Obfuscar configuration files are deprecated and future releases will require absolute paths. Update your configuration to use absolute paths and consult the Getting Started guide for examples.
+
 General
 -------
 Obfuscar is a basic obfuscator for .NET assemblies. It uses massive
