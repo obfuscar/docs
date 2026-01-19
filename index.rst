@@ -13,13 +13,13 @@ Obfuscar Documentation
    the latest version from NuGet.
 
 .. warning::
-   Environment-variable expansion inside Obfuscar configuration files is deprecated and will be removed in a future release. Please avoid using environment-variable syntax in project configuration files and consult the Getting Started guide for migration steps.
+   Obfuscar configuration files must use absolute paths for ``InPath``, ``OutPath``, and ``LogFile``. Relative paths are rejected.
 
 .. warning::
-   Relative paths in Obfuscar configuration files are deprecated and future releases will require absolute paths. Update your configuration to use absolute paths and consult the Getting Started guide for examples.
+   Obfuscar does not expand environment variables or ``$(...)`` placeholders in configuration files. Provide explicit values.
 
 .. note::
-   It is recommended to *generate* the Obfuscar XML configuration file as part of your build or CI pipeline (see the `example` repository for a sample). Expand environment variables and resolve relative paths during generation so the produced XML contains only absolute paths and explicit values. Obfuscar itself expects absolute paths and does not perform environment-variable expansion or variable substitution in configuration files.
+   It is recommended to *generate* the Obfuscar XML configuration file as part of your build or CI pipeline. Expand environment variables and resolve relative paths during generation so the produced XML contains only absolute paths and explicit values.
 
 General
 -------

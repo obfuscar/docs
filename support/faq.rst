@@ -97,6 +97,20 @@ a valid input path in configuration and then they should disappear.
 Usually such exceptions happen when mixed-mode assemblies (from C++/CLI) are
 being obfuscated. Mono.Cecil (legacy) does not support such. Please skip them.
 
+Why does Obfuscar reject relative paths or $(...) placeholders?
+---------------------------------------------------------------
+Typical exceptions might look like below,
+
+.. code-block:: text
+
+   Obfuscar.ObfuscarException: InPath must be an absolute path: '$(InPath)'
+   Obfuscar.ObfuscarException: OutPath must be an absolute path: 'bin\\Release'
+
+Obfuscar requires absolute paths for ``InPath``, ``OutPath``, and ``LogFile`` and
+does not expand environment variables or ``$(...)`` placeholders in configuration
+files. Generate the configuration with explicit values or update the XML to use
+absolute paths.
+
 How to troubleshoot UnauthorizedAccessException?
 ------------------------------------------------
 Typical exceptions look like below,
