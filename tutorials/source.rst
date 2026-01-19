@@ -24,7 +24,7 @@ Compilation Steps
 
     git submodule update --init --recursive
 
-#. Open Obfuscar.sln in Visual Studio and compile.
+.#. Open Obfuscar.slnx in Visual Studio and compile.
 
 .. note:: Alternatively, run ``dist.pack.bat`` to compile via command line.
 
