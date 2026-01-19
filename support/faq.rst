@@ -55,7 +55,7 @@ Typical exceptions might look like below,
    System.BadImageFormatException: Format of the executable (.exe) or library
    (.dll) is invalid.
 
-Usually such exceptions happen when Mono Cecil cannot understand the input
+Usually such exceptions happen when Mono.Cecil (legacy) cannot understand the input
 assemblies. You might upgrade to a newer version of Obfuscar (if exists) or
 skip such assemblies in obfuscation process (as usually they are already
 obfuscated).
@@ -95,7 +95,7 @@ a valid input path in configuration and then they should disappear.
    System.NotSupportedException: Writing mixed-mode assemblies is not supported
 
 Usually such exceptions happen when mixed-mode assemblies (from C++/CLI) are
-being obfuscated. Mono Cecil does not support such. Please skip them.
+being obfuscated. Mono.Cecil (legacy) does not support such. Please skip them.
 
 How to troubleshoot UnauthorizedAccessException?
 ------------------------------------------------

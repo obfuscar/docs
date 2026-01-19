@@ -18,6 +18,9 @@ Obfuscar Documentation
 .. warning::
    Relative paths in Obfuscar configuration files are deprecated and future releases will require absolute paths. Update your configuration to use absolute paths and consult the Getting Started guide for examples.
 
+.. note::
+   It is recommended to *generate* the Obfuscar XML configuration file as part of your build or CI pipeline (see the `example` repository for a sample). Expand environment variables and resolve relative paths during generation so the produced XML contains only absolute paths and explicit values. Obfuscar itself expects absolute paths and does not perform environment-variable expansion or variable substitution in configuration files.
+
 General
 -------
 Obfuscar is a basic obfuscator for .NET assemblies. It uses massive
@@ -35,9 +38,11 @@ about What It Does.
 
 .. image:: _static/obfuscar.png
 
-The current release is Obfuscar 2.x. This is a port of Obfuscar 1.5.4 to the
-latest Mono.Cecil library. There were a lot of subtle changes in Cecil's new API
-and patches merged from different sources.
+The current release is Obfuscar 2.x. The project historically used the Mono.Cecil
+library for metadata handling. With the upcoming v3 release Obfuscar has been
+refactored to use System.Reflection.Metadata (SRM)-backed readers and mutable
+metadata abstractions; v3 will not have a runtime dependency on Mono.Cecil for
+its core obfuscation pipeline. See the developer notes for migration details.
 
 .. note:: Since version 1.5 the attrib attribute is evaluated correctly. Be
    sure to check if there are any unintended attrib values from the example in
@@ -47,8 +52,10 @@ Its source code can be found at GitHub,
 
 https://github.com/obfuscar/obfuscar
 
-Obfuscar works its magic with the help of Jb Evain's fantastic Mono Cecil
-library.
+Obfuscar previously relied on Jb Evain's Mono.Cecil for low-level metadata
+manipulation. The codebase has since moved to SRM/mutable adapters and uses
+abstractions to avoid a direct runtime dependency on Mono.Cecil in the main
+projects and tests.
 
 The documentation section includes the following topics,
 
