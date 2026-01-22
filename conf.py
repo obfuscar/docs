@@ -59,7 +59,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'obfuscar'
-copyright = u'2007-2025 Ryan Williams, Calvin Rien, Lex Li, RemObjects Software, and other contributors'
+copyright = u'2007-2026 Ryan Williams, Calvin Rien, Lex Li, RemObjects Software, and other contributors'
 author = u'Ryan Williams, Calvin Rien, Lex Li, RemObjects Software, and other contributors'
 
 # The version info for the project you're documenting, acts as replacement for
