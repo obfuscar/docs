@@ -26,7 +26,7 @@ Compilation Steps
 
 .#. Open Obfuscar.slnx in Visual Studio and compile.
 
-.. note:: Alternatively, run ``dist.pack.bat`` to compile via command line.
+.. note:: Alternatively, run ``dist.all.bat`` to compile via command line.
 
 Related Resources
 -----------------
