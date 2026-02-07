@@ -15,11 +15,11 @@ Settings
 
 Variables are typically used to store settings. Recommended variable names to use are:
 
-=================== ===========================================================
+=================== ==========================================================
 Name                Description
-=================== ===========================================================
-InPath              Directory containing the input assemblies, such as ``c:\\in``.
-OutPath             Directory to contain the obfuscated assemblies, such as ``c:\\out``.
+=================== ==========================================================
+InPath              Directory containing the input assemblies, such as ``c:\in``.
+OutPath             Directory to contain the obfuscated assemblies, such as ``c:\out``.
 LogFile             Obfuscation log file path (mapping.txt).
 XmlMapping          Whether the log file should be of XML format.
 KeyFile             Key file path, such as ``c:\folder\key.pfx``.
@@ -39,58 +39,62 @@ HideStrings         Whether to hide strings.
 OptimizeMethods     Whether to optimize methods.
 SuppressIldasm      Whether to include an attribute for ILDASM to indicate that assemblies are obfuscated.
 AnalyzeXaml         Whether to analyze XAML related metadata for obfuscation.
+SkipSpecialName     Whether to skip members with the SpecialName attribute.
 SkipGenerated       Whether to skip certain types marked with compiler-generated attributes during obfuscation.
 =================== ===========================================================
 
-The default values can be found in `source code <https://github.com/obfuscar/obfuscar/blob/2.2.49/Obfuscar/Settings.cs>`_ .
+The default values can be found in the `source code <https://github.com/obfuscar/obfuscar/blob/release-3.0/src/Obfuscar/Settings.cs>`_ for the v3 branch.
 
 Variables, InPath and OutPath
 -----------------------------
-The following is an example of a minimal configuration. It is provided in
-the source code as part of the Basic Example:
+Obfuscar v3 enforces absolute paths in configuration files. Relative paths and
+``$(...)`` variable substitution are rejected by the v3 parser. Instead of
+relying on runtime expansion, generate an XML configuration that contains
+absolute paths (for example from your CI or build script) and pass that to
+Obfuscar.
 
-.. code-block:: xml
+Example: generate absolute-path config on macOS/Linux before running Obfuscar
 
+.. code-block:: bash
+
+   REAL_INPATH=$(realpath ./build/input)
+   REAL_OUT=$(realpath ./build/out)
+
+   cat > /tmp/obfuscar-config.xml <<EOF
    <?xml version='1.0'?>
    <Obfuscator>
-     <Var name="InPath" value=".\Obfuscator_Input" />
-     <Var name="OutPath" value=".\Obfuscator_Output" />
+      <Var name="InPath" value="${REAL_INPATH}" />
+      <Var name="OutPath" value="${REAL_OUT}" />
 
-     <Module file="$(InPath)\BasicExampleExe.exe" />
-     <Module file="$(InPath)\BasicExampleLibrary.dll" />
+      <Module file="${REAL_INPATH}/BasicExampleExe.exe" />
+      <Module file="${REAL_INPATH}/BasicExampleLibrary.dll" />
    </Obfuscator>
+   EOF
 
-In this sample, the two variables InPath and Output are defined
-using the ``Var`` element. The sample also specifies that two assemblies should be obfuscated: an
-executable and a dll.
+Notes:
 
-Variables defined using the ``Var`` element will be expanded in strings following
-the definition. For example, when InPath is defined as:
-
-.. code-block:: xml
-
-   <Var name="InPath" value=".\Obfuscator_Input" />
-
-it can be used in a module:
-
-.. code-block:: xml
-
-   <Module file="$(InPath)\BasicExampleExe.exe" />
-
-A few special variables have additional effects:
-
-- The variable ``InPath`` is used when resolving dependencies by searching the specified path. The default of ``InPath`` is the current working directory (".").
-- The variable ``OutPath`` is used as the output path for the obfuscated assemblies and the log file specified in the variable ``LogFile``. The default of ``OutPath`` is the current working directory (".").
+- The ``InPath`` value is used when resolving referenced assemblies. Set it to an absolute directory that contains the inputs used for resolution.
+- The ``OutPath`` value is used as the output directory for obfuscated assemblies and for the log file specified by ``LogFile``; it must be absolute.
 
 Assembly Search Path (2.2.5+)
 -----------------------------
-This setting specifies one additional directory to search for referenced assemblies. There can
-be multiple instances of this setting, which are searched sequentially.
+This setting specifies an additional directory to search for referenced assemblies. Multiple
+instances may be provided and are searched in order. In Obfuscar v3 all path attributes must be
+absolute — relative paths are rejected by the parser.
+
+Examples (absolute paths):
 
 .. code-block:: xml
 
-   <AssemblySearchPath path=".\Library\UnityAssemblies" />
-   <AssemblySearchPath path=".\Assets\SpriteSharp\Editor\3rdParty" />
+   <!-- macOS / Linux -->
+   <AssemblySearchPath path="/Users/you/project/Library/UnityAssemblies" />
+   <AssemblySearchPath path="/Users/you/project/Assets/SpriteSharp/Editor/3rdParty" />
+
+.. code-block:: xml
+
+   <!-- Windows (use forward or escaped backslashes) -->
+   <AssemblySearchPath path="C:\\Projects\\MyApp\\Library\\UnityAssemblies" />
+   <AssemblySearchPath path="C:\\Projects\\MyApp\\Assets\\SpriteSharp\\Editor\\3rdParty" />
 
 KeepPublicApi and HidePrivateApi
 --------------------------------
@@ -134,9 +138,8 @@ Modules
 -------
 The assemblies to be obfuscated are listed one-by-one as a separate ``Module`` element. 
 Assemblies
-referenced by an assembly specified by a ``Module`` element must be resolvable,
-either via Cecil's regular resolution process, via the
-path specified by InPath or via a directory listed as ``AssemblySearchPath``.
+referenced by an assembly specified by a ``Module`` element must be resolvable, for example via the
+path specified by ``InPath`` or via a directory listed as ``AssemblySearchPath``.
 
 Only assemblies specified in a ``Module`` element will be obfuscated. Resolved
 assemblies are not altered.
@@ -187,11 +190,16 @@ within which methods not to obfuscate the string constants. To make it harder
 to analyze the code, Obfuscar normally replaces string loads by method calls
 to lookup functions, which incurs a small performance penalty.
 
-A more complete example:
+A more complete example (remember to use absolute paths in v3):
 
 .. code-block:: xml
 
-   <Module file="$(InPath)\AssemblyX.exe">
+   <!-- On macOS/Linux use absolute paths like: -->
+   <!-- <Module file="/path/to/input/AssemblyX.exe"> -->
+   <!-- On Windows use: -->
+   <!-- <Module file="C:\\path\\to\\input\\AssemblyX.exe"> -->
+
+   <Module file="C:\your\absolute\path\AssemblyX.exe">
      <!-- skip a namespace -->
      <SkipNamespace name="Company.PublicBits" />
 
@@ -258,6 +266,31 @@ To prevent all events from being obfuscated, set the RenameEvents variable to
 "false" (it's also xsd boolean). To prevent specific events from being
 renamed, use the ``SkipEvent`` element. It will also skip the event's accessors,
 add_XXX and remove_XXX.
+
+Skipping special-name and compiler-generated members
+----------------------------------------------------
+
+Two related controls were added in the v3 series to help users avoid touching
+compiler- or tool-generated code that can cause functional or testing issues
+when renamed.
+
+- ``SkipSpecialName`` (boolean): when set to ``true``, Obfuscar will skip
+   members flagged with the `[SpecialName]` attribute in metadata. This includes
+   compiler-generated accessors for properties/events, etc.
+
+- ``SkipGenerated`` (boolean): when set to ``true``, Obfuscar will skip types
+   that carry compiler-generated markers (for example the `[CompilerGenerated]`
+   attribute). This helps avoid touching anonymous types, state machine types,
+   and other artifacts produced by the compiler.
+
+Recommended usage:
+
+- Enable these settings when you run into runtime or reflection issues after
+   obfuscation, or when your codebase contains language-generated types (e.g.,
+   async/iterator state machines, anonymous types, or lambda closures).
+- Use them together for conservative obfuscation: ``SkipGenerated=true`` and
+   ``SkipSpecialName=true`` will avoid most compiler-produced items.
+
 
 Inclusion Rules by Configuration (new)
 --------------------------------------
@@ -448,13 +481,14 @@ Usage example:
 
    <?xml version="1.0" encoding="UTF-8"?>
    <Obfuscator>
-     <Var name="InPath" value="..\..\Input" />
-     <Var name="OutPath" value="..\..\Output" />
+     <!-- In v3, all paths must be absolute. Generate this file as part of your build. -->
+     <Var name="InPath" value="/Users/you/project/build/input" />
+     <Var name="OutPath" value="/Users/you/project/build/output" />
      <Var name="KeepPublicApi" value="false" />
      <Var name="HidePrivateApi" value="true" />
-     <Include path="$(InPath)\TestInclude.xml" />
-     <Module file="$(InPath)\AssemblyWithCustomAttr.dll">
-         <Include path="$(InPath)\TestIncludeModule.xml" />
+     <Include path="/Users/you/project/config/TestInclude.xml" />
+     <Module file="/Users/you/project/build/input/AssemblyWithCustomAttr.dll">
+         <Include path="/Users/you/project/config/TestIncludeModule.xml" />
      </Module>
    </Obfuscator>
 
@@ -494,7 +528,8 @@ You can use the ``SkipType`` element with the ``decoratorAll`` attribute to excl
 
 .. code-block:: xml
 
-   <Module file="$(InPath)\testmvc6.dll">
+   <!-- Use absolute path; example for Windows: -->
+   <Module file="C:\Users\you\project\build\testmvc6.dll">
      <!-- Skip types that have ALL of these attributes (comma-separated) -->
      <SkipType name="*" decoratorAll="System.Runtime.CompilerServices.CompilerGeneratedAttribute,Microsoft.CodeAnalysis.EmbeddedAttribute" />
    </Module>

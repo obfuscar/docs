@@ -8,15 +8,26 @@
 Obfuscar Documentation
 ======================
 
-.. attention:: Obfuscar 2.2 is now available on NuGet! Please read the
-   :doc:`Getting Started <getting-started/index>` instructions for installing
-   the latest version from NuGet.
+.. attention:: **Obfuscar 3.0 Beta is now available!** 
+
+   Version 3.0 is a major upgrade with:
+   
+   - **Significant performance improvements** (modern IL pipeline, no Mono.Cecil)
+   - **Better .NET language feature support** (recent async/LINQ patterns)
+   - **Stricter configuration** (absolute paths only, no variable expansion)
+   
+   **Install via:**
+   
+   - **Global Tool (console):** ``dotnet tool install --global Obfuscar.GlobalTool --prerelease``
+   - **NuGet Package (.NET Framework/projects):** ``dotnet package add Obfuscar --prerelease``
+   
+   Without ``--prerelease``, the stable version 2.2 is installed.
 
 .. warning::
-   Obfuscar configuration files must use absolute paths for ``InPath``, ``OutPath``, and ``LogFile``. Relative paths are rejected.
+   Obfuscar 3.0 configuration files must use absolute paths for ``InPath``, ``OutPath``, and ``LogFile``. Relative paths are rejected.
 
 .. warning::
-   Obfuscar does not expand environment variables or ``$(...)`` placeholders in configuration files. Provide explicit values.
+   Obfuscar 3.0 does not expand environment variables or ``$(...)`` placeholders in configuration files. Provide explicit values.
 
 .. note::
    It is recommended to *generate* the Obfuscar XML configuration file as part of your build or CI pipeline. Expand environment variables and resolve relative paths during generation so the produced XML contains only absolute paths and explicit values.
@@ -53,21 +64,19 @@ Its source code can be found at GitHub,
 https://github.com/obfuscar/obfuscar
 
 Obfuscar previously relied on Jb Evain's Mono.Cecil for low-level metadata
-manipulation. The codebase has since moved to SRM/mutable adapters and uses
-abstractions to avoid a direct runtime dependency on Mono.Cecil in the main
-projects and tests.
+manipulation. The codebase has since moved to SRM/mutable adapters.
 
 The documentation section includes the following topics,
 
 .. toctree::
     :titlesonly:
 
-    Visit Docs Home <https://docs.lextudio.com>
-    getting-started/index
-    tutorials/index
-    support/index
-    contribute/index
-    privacy
+   Visit Docs Home <https://docs.lextudio.com>
+   getting-started/index
+   tutorials/index
+   support/index
+   contribute/index
+   privacy
 
 Contribute to Documentation
 ---------------------------

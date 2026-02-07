@@ -64,7 +64,12 @@ due to the varied needs and design goals of two parties the forks still
 present significant differences.
 
 The `project homepage <https://www.obfuscar.com>`_ is now launched, and the
-latest release is 2.2.*.
+latest stable release is 2.2.*.
+
+The upcoming 3.0 release is a major refactor that includes a migration from
+Mono.Cecil to System.Reflection.Metadata (SRM)-backed mutable metadata
+abstractions, strict configuration validation, and various performance and
+correctness improvements.
 
 .. rubric:: Footnotes
 

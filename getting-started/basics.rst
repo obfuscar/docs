@@ -56,18 +56,18 @@ It makes debugging / reverse engineering very difficult, but wouldn't stop
 someone who really wants to reverse engineer it. It would at least slow them
 down, and would deter casual observers.
 
-Deobfuscators such as `de4dot <https://github.com/0xd4d/de4dot>`_ make it
+Deobfuscators (such as `de4dot <https://github.com/0xd4d/de4dot>`_) make it
 easy to reverse most protection a commercial obfuscator might set. But note
 that the names obfuscated by Obfuscar still remains useful, as what's lost
 cannot be restored.
 
-.NET Core Global Tools
-----------------------
+.NET Global Tools
+-----------------
 Starting from .NET Core 2.1 SDK, Microsoft has introduced the concept of
-global tools. Global tools are .NET Core applications that are installed
+global tools. Global tools are .NET applications that are installed
 system-wide and can be run from any command prompt. This is similar to
 traditional command-line tools, but with the added benefit of being able to
-use the .NET Core runtime to run them.
+use the .NET runtime to run them.
 
 Obfuscar can be used as a global tool since its 2.2.15 release. This allows
 you to install Obfuscar as a global tool and run it from any command prompt.
@@ -79,13 +79,13 @@ Visit `the NuGet page <https://www.nuget.org/packages/Obfuscar.GlobalTool/>`_ fo
 
 .. important::
 
-   Due to the short life cycle of .NET Core SDK, latest Obfuscar release won't
+   Due to the short life cycle of .NET SDK, latest Obfuscar release won't
    work with end-of-life releases. You need to read Microsoft documentation to
    find out which SDK versions are supported.
 
 .. important::
 
-   If you are working on .NET Core/.NET projects, using this global tool is
+   If you are working on .NET projects, using this global tool is
    highly recommended than using the NuGet package.
 
 Related Resources

@@ -60,7 +60,7 @@ assemblies. You might upgrade to a newer version of Obfuscar (if exists) or
 skip such assemblies in obfuscation process (as usually they are already
 obfuscated).
 
-However, if you are obfuscating a .NET Core project, make sure your config file
+However, if you are obfuscating a .NET project, make sure your config file
 points to the right assemblies (``*.dll``), not the native executable added by
 .NET CLI (``*.exe``). Please use a tool like ILSpy to verify if a file is .NET
 managed or native.
@@ -106,10 +106,44 @@ Typical exceptions might look like below,
    Obfuscar.ObfuscarException: InPath must be an absolute path: '$(InPath)'
    Obfuscar.ObfuscarException: OutPath must be an absolute path: 'bin\\Release'
 
-Obfuscar requires absolute paths for ``InPath``, ``OutPath``, and ``LogFile`` and
-does not expand environment variables or ``$(...)`` placeholders in configuration
-files. Generate the configuration with explicit values or update the XML to use
-absolute paths.
+**Why?** Obfuscar 3.0 requires absolute paths for ``InPath``, ``OutPath``, ``LogFile``, and ``AssemblySearchPath`` and does not expand environment variables or ``$(...)`` placeholders. This prevents ambiguity and path resolution errors.
+
+**How to fix it:**
+
+1. **If using a build system (MSBuild, PowerShell, bash):** Generate the Obfuscar XML configuration as part of your build process with expanded absolute paths:
+
+   .. code-block:: bash
+
+      # macOS/Linux example
+      INPATH=$(realpath ./bin/Release)
+      OUTPATH=$(realpath ./obfuscated)
+      cat > /tmp/obfuscar.xml <<EOF
+      <?xml version="1.0"?>
+      <Obfuscator>
+        <Var name="InPath" value="${INPATH}" />
+        <Var name="OutPath" value="${OUTPATH}" />
+        <Module file="${INPATH}/MyApp.exe" />
+      </Obfuscator>
+      EOF
+
+   .. code-block:: powershell
+
+      # Windows example
+      $inPath = Resolve-Path ".\bin\Release" -Absolute
+      $outPath = Resolve-Path ".\obfuscated" -Absolute
+      @"
+      <?xml version="1.0"?>
+      <Obfuscator>
+        <Var name="InPath" value="$inPath" />
+        <Var name="OutPath" value="$outPath" />
+        <Module file="$inPath\MyApp.exe" />
+      </Obfuscator>
+      "@ | Out-File -FilePath "obfuscar.xml" -Encoding UTF8
+
+2. **If manually editing XML:** Always use full absolute paths:
+
+   - macOS/Linux: ``/Users/you/project/bin/Release`` or ``/home/user/project/bin``
+   - Windows: ``C:\Users\you\project\bin\Release`` (forward slashes ``C:/Users/you/project/bin/Release`` also work)
 
 How to troubleshoot UnauthorizedAccessException?
 ------------------------------------------------
