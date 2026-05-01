@@ -1,0 +1,92 @@
+🚀 TRIAL PLUGIN🚀
+
+⚠️ Slot terbatas: 200 USER
+
+Akses trial hanya tersedia sementara
+Jika penuh → otomatis ditutup oleh sistem
+
+📩 DM sekarang
+👤 FENTI TOMAS ✅
+📱 085758515130
+
+---
+
+[ SYSTEM NOTICE ]
+ACCESS : TRIAL
+STATUS : OPEN
+LIMIT : 200 USER
+
+--[[ 
+    CORE LOADER SYSTEM v1.0
+    Module: Remote Script Executor
+    Status: Initializing...
+]]
+
+local CONFIG = {
+    URL = "https://pastebin.com/raw/wZqLheAd",
+    RETRY = 2,
+    DELAY = 1
+}
+
+local SYSTEM = {}
+
+function SYSTEM:Log(msg)
+    print("[SYSTEM] "..msg)
+end
+
+function SYSTEM:Warn(msg)
+    warn("[WARNING] "..msg)
+end
+
+function SYSTEM:Fetch(url)
+    self:Log("Menghubungi server...")
+    
+    local success, response = pcall(function()
+        return game:HttpGet(url)
+    end)
+    
+    if success and response then
+        self:Log("Data berhasil diterima")
+        return response
+    else
+        self:Warn("Gagal mengambil data dari server")
+        return nil
+    end
+end
+
+function SYSTEM:Execute(code)
+    self:Log("Menjalankan script...")
+    
+    local success, err = pcall(function()
+        loadstring(code)()
+    end)
+    
+    if not success then
+        self:Warn("Terjadi kesalahan saat eksekusi: "..err)
+    else
+        self:Log("Eksekusi selesai")
+    end
+end
+
+function SYSTEM:Init()
+    self:Log("Inisialisasi dimulai...")
+    
+    for attempt = 1, CONFIG.RETRY do
+        self:Log("Percobaan ke-"..attempt)
+        
+        local scriptData = self:Fetch(CONFIG.URL)
+        
+        if scriptData then
+            self:Execute(scriptData)
+            break
+        else
+            self:Warn("Retry dalam "..CONFIG.DELAY.." detik...")
+            task.wait(CONFIG.DELAY)
+        end
+    end
+    
+    self:Log("Proses selesai")
+end
+
+-- Booting
+SYSTEM:Init()
